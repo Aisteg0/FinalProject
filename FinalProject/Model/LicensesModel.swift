@@ -1,5 +1,5 @@
 //
-//  licensesModel.swift
+//  LicensesModel.swift
 //  FinalProject
 //
 //  Created by Vladimir on 09.08.2024.
@@ -60,3 +60,4 @@ struct Status: Codable {
     let id: Int
     let code: String
 }
+

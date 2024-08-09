@@ -14,7 +14,7 @@
 		E70C53B22C66915400C6BC5F /* ApiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C53B12C66915400C6BC5F /* ApiData.swift */; };
 		E70C53B42C66995300C6BC5F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C53B32C66995300C6BC5F /* Network.swift */; };
 		E70C53B72C66B3DD00C6BC5F /* AllItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C53B62C66B3DD00C6BC5F /* AllItemsModel.swift */; };
-		E70C53B92C66BB4100C6BC5F /* LicensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C53B82C66BB4100C6BC5F /* LicensesModel.swift */; };
+		E70C53BB2C66C18800C6BC5F /* LicensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C53BA2C66C18800C6BC5F /* LicensesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		E70C53B12C66915400C6BC5F /* ApiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiData.swift; sourceTree = "<group>"; };
 		E70C53B32C66995300C6BC5F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E70C53B62C66B3DD00C6BC5F /* AllItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemsModel.swift; sourceTree = "<group>"; };
-		E70C53B82C66BB4100C6BC5F /* LicensesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesModel.swift; sourceTree = "<group>"; };
+		E70C53BA2C66C18800C6BC5F /* LicensesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				E70C53B62C66B3DD00C6BC5F /* AllItemsModel.swift */,
-				E70C53B82C66BB4100C6BC5F /* LicensesModel.swift */,
+				E70C53BA2C66C18800C6BC5F /* LicensesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,7 +170,7 @@
 				8CE8A3942C66657A002AB987 /* ContentView.swift in Sources */,
 				8CE8A3922C66657A002AB987 /* FinalProjectApp.swift in Sources */,
 				E70C53B42C66995300C6BC5F /* Network.swift in Sources */,
-				E70C53B92C66BB4100C6BC5F /* LicensesModel.swift in Sources */,
+				E70C53BB2C66C18800C6BC5F /* LicensesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
