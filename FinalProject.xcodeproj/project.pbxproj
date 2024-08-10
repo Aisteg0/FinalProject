@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		65BC9FF32C677AA6002C4E2F /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BC9FF22C677AA6002C4E2F /* ViewExtension.swift */; };
 		65BC9FF82C678280002C4E2F /* UISystem in Frameworks */ = {isa = PBXBuildFile; productRef = 65BC9FF72C678280002C4E2F /* UISystem */; };
+		65BCA0072C679319002C4E2F /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BCA0062C679319002C4E2F /* AuthRouter.swift */; };
+		65BCA0092C679324002C4E2F /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BCA0082C679324002C4E2F /* MainRouter.swift */; };
+		65BCA00C2C679404002C4E2F /* Router in Frameworks */ = {isa = PBXBuildFile; productRef = 65BCA00B2C679404002C4E2F /* Router */; };
+		65BCA0102C67947C002C4E2F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BCA00F2C67947C002C4E2F /* AuthManager.swift */; };
+		65BCA0142C67A0BE002C4E2F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BCA0132C67A0BE002C4E2F /* StorageManager.swift */; };
 		8CE8A3922C66657A002AB987 /* FinalProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */; };
 		8CE8A3942C66657A002AB987 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8A3932C66657A002AB987 /* ContentView.swift */; };
 		8CE8A3962C66657B002AB987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE8A3952C66657B002AB987 /* Assets.xcassets */; };
@@ -18,6 +23,11 @@
 /* Begin PBXFileReference section */
 		65BC9FF22C677AA6002C4E2F /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		65BC9FF52C678250002C4E2F /* UISystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UISystem; sourceTree = "<group>"; };
+		65BCA0042C6791E8002C4E2F /* Router */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Router; sourceTree = "<group>"; };
+		65BCA0062C679319002C4E2F /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		65BCA0082C679324002C4E2F /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		65BCA00F2C67947C002C4E2F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		65BCA0132C67A0BE002C4E2F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		8CE8A38E2C66657A002AB987 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectApp.swift; sourceTree = "<group>"; };
 		8CE8A3932C66657A002AB987 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -31,6 +41,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65BC9FF82C678280002C4E2F /* UISystem in Frameworks */,
+				65BCA00C2C679404002C4E2F /* Router in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +59,7 @@
 		65BC9FF42C678222002C4E2F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				65BCA0042C6791E8002C4E2F /* Router */,
 				65BC9FF52C678250002C4E2F /* UISystem */,
 			);
 			path = Modules;
@@ -58,6 +70,25 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65BCA0052C6792DF002C4E2F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				65BCA0172C67B54D002C4E2F /* Routing */,
+				65BCA00F2C67947C002C4E2F /* AuthManager.swift */,
+				65BCA0132C67A0BE002C4E2F /* StorageManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		65BCA0172C67B54D002C4E2F /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				65BCA0062C679319002C4E2F /* AuthRouter.swift */,
+				65BCA0082C679324002C4E2F /* MainRouter.swift */,
+			);
+			path = Routing;
 			sourceTree = "<group>";
 		};
 		8CE8A3852C666579002AB987 = {
@@ -83,6 +114,7 @@
 				65BC9FF42C678222002C4E2F /* Modules */,
 				8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */,
 				8CE8A3932C66657A002AB987 /* ContentView.swift */,
+				65BCA0052C6792DF002C4E2F /* Service */,
 				65BC9FF12C677A88002C4E2F /* Extensions */,
 				8CE8A3952C66657B002AB987 /* Assets.xcassets */,
 				8CE8A3972C66657B002AB987 /* Preview Content */,
@@ -116,6 +148,7 @@
 			name = FinalProject;
 			packageProductDependencies = (
 				65BC9FF72C678280002C4E2F /* UISystem */,
+				65BCA00B2C679404002C4E2F /* Router */,
 			);
 			productName = FinalProject;
 			productReference = 8CE8A38E2C66657A002AB987 /* FinalProject.app */;
@@ -171,8 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BCA0092C679324002C4E2F /* MainRouter.swift in Sources */,
+				65BCA0102C67947C002C4E2F /* AuthManager.swift in Sources */,
 				65BC9FF32C677AA6002C4E2F /* ViewExtension.swift in Sources */,
+				65BCA0142C67A0BE002C4E2F /* StorageManager.swift in Sources */,
 				8CE8A3942C66657A002AB987 /* ContentView.swift in Sources */,
+				65BCA0072C679319002C4E2F /* AuthRouter.swift in Sources */,
 				8CE8A3922C66657A002AB987 /* FinalProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +423,10 @@
 		65BC9FF72C678280002C4E2F /* UISystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UISystem;
+		};
+		65BCA00B2C679404002C4E2F /* Router */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Router;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
