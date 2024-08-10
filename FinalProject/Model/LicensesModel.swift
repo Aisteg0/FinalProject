@@ -13,7 +13,7 @@ struct LicensesModel: Codable {
 }
 
 struct Datum: Codable {
-    let licenseID, licenseTo: Int
+    let licenseId, licenseTo: Int
     let licenseName: String?
     let meOwner: Bool
     let status: Status?
@@ -21,13 +21,9 @@ struct Datum: Codable {
     let access: [Access]
     let type: String
     let companies: [Int]
-
-    enum CodingKeys: String, CodingKey {
-        case licenseID = "licenseId"
-        case licenseTo, licenseName, meOwner, status, messenger, app, access, type, companies
-    }
 }
 
+// MARK: - Access
 struct Access: Codable {
     let userID, email: String
 
@@ -37,25 +33,13 @@ struct Access: Codable {
     }
 }
 
+// MARK: - App
 struct App: Codable {
-    let type: TypeEnum
-    let name: Name
+    let type: String
+    let name: String
 }
 
-enum Name: String, Codable {
-    case bitrix24 = "Bitrix24"
-    case telegram = "Telegram"
-    case whatsAppBusinessAPI = "WhatsApp Business API"
-    case whatsAppChatAPI = "WhatsApp [Chat API]"
-}
-
-enum TypeEnum: String, Codable {
-    case bitrix = "bitrix"
-    case grayWhatsApp = "grayWhatsApp"
-    case telegram = "telegram"
-    case whatsApp = "WhatsApp"
-}
-
+// MARK: - Status
 struct Status: Codable {
     let id: Int
     let code: String
