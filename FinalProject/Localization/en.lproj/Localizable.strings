@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  FinalProject
+
+  Created by Ильяс Жанаев on 10.08.2024.
+  
+*/
+
+"enterPhoneNumber" = "Enter phone number";
+"willSendCode" = "We will send a confirmation code to the specified number";
+"continue" = "Continue";
+"enterCode" = "Enter a code";
+"sentCode" = "Sent a code to the number";
+"requestCodeAgain" = "Request code again";

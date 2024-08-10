@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  FinalProject
+
+  Created by Ильяс Жанаев on 10.08.2024.
+  
+*/
+
+"enterPhoneNumber" = "Введите номер телефона";
+"willSendCode" = "Мы вышлем код подтверждения на указанный номер";
+"continue" = "Продолжить";
+"enterCode" = "Введите код";
+"sentCode" = "Отправили код на номер";
+"requestCodeAgain" = "Запросить код повторно";
