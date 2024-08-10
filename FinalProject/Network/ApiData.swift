@@ -18,21 +18,22 @@ enum Token: String {
 enum Chats: String {
     case licenses = "/v1/licenses"
     case allChats = "/v1/chats"
+    case currentMessage = "v1/licenses/{licenseId/messengers/{messengerType}/chats/{chatId}/messages/text"
+}
+
+enum MessageBuilder: String {
+    case licenses = "/v1/licenses/"
+    case messenger = "/messengers/"
+    case chatId = "/chats/"
+    case messageAndText = "/messages/text"
 }
 
 enum ProfileInfoURL: String {
     case me = "/v1/me"
 }
 
-
 enum PersonalData: String {
-    case email = "SergeyD0205@yandex.ru"
-    case password = "16a85a64eac5302945dcf541777b0bf0"
-    case appid = "app_29499_1"
+    case email = "world"
+    case password = "hello"
+    case appid = "none"
 }
-
-//enum PersonalData: String {
-//    case email = "viktorlala@yandex.ru"
-//    case password = "Viski1357("
-//    case appid = "app_49442_1"
-//}

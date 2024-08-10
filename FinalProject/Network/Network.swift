@@ -16,11 +16,14 @@ enum NetworkError: Error {
 
 final class Network: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
-    
+}
+
+// MARK: POST - requests
+extension Network {
     
     // Генерирует токен и в completion его возвращает (лучше реализовать метод в начале запуска приложения , лушче всего в init() классе)
-    func getToken(with personalData: PersonalData.Type, _ completion: @escaping(Result<String, NetworkError>) -> Void) {
-        guard let url = URL(string: API.url.rawValue + Token.getToken.rawValue) else {
+    func postNewToken(with personalData: PersonalData.Type, _ completion: @escaping(Result<String, NetworkError>) -> Void) {
+        guard let url = URL(string: postToken()) else {
             return completion(.failure(.invalidURL))
             
         }
@@ -58,13 +61,13 @@ final class Network: ObservableObject {
     }
     
     // Заново генерирует токен, если предыдущий перестал работать, в completion его возвращает (лучше реализовать метод в начале запуска приложения , лушче всего в init() классе)
-    func refreshToken(_ completion: @escaping(Result<String, NetworkError>) -> Void) {
-        guard let url = URL(string: API.url.rawValue + Token.refreshToken.rawValue) else {
+    func postRefreshToken(_ completion: @escaping(Result<String, NetworkError>) -> Void) {
+        guard let url = URL(string: postRefreshToken()) else {
             return completion(.failure(.invalidURL))
             
         }
         var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("ru", forHTTPHeaderField: "Lang")
         
@@ -90,28 +93,32 @@ final class Network: ObservableObject {
             }
             .store(in: &cancellables)
     }
+}
+
+// MARK: Get - requests
+extension Network {
     
     // Возвращает массив чатов, с полной информацией о них, для того, чтобы далее использовать инфу для отправки сообщения
     func getLicenses(with token: String) -> AnyPublisher<[Datum], Never>  {
         guard let url = URL(string: API.url.rawValue + Chats.licenses.rawValue) else {
-                return  Just([Datum]()).eraseToAnyPublisher()
-                }
+            return  Just([Datum]()).eraseToAnyPublisher()
+        }
         print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(token, forHTTPHeaderField: "Authorization")
         request.setValue("ru", forHTTPHeaderField: "Lang")
         
-                return fetch(request)
-                .map { (response: LicensesModel) -> [Datum] in
-                    return response.data
-                    }
-                    .replaceError(with: [Datum]())
-                    .eraseToAnyPublisher()
+        return fetch(request)
+            .map { (response: LicensesModel) -> [Datum] in
+                return response.data
+            }
+            .replaceError(with: [Datum]())
+            .eraseToAnyPublisher()
     }
     
     // Возвращает массив объектов, по моделе: AllItemsModel
-    func fetchAllItems(with token: String) -> AnyPublisher<[DataItem], Never> {
+    func getAllItems(with token: String) -> AnyPublisher<[DataItem], Never> {
         guard let url = URL(string: API.url.rawValue + Chats.allChats.rawValue) else {
             return  Just([DataItem]()).eraseToAnyPublisher()
         }
@@ -128,27 +135,46 @@ final class Network: ObservableObject {
             .eraseToAnyPublisher()
     }
     
-    
-        
-        // Функция для загрузки картинки
-        func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
-            guard let url = URL(string: url ?? "") else {
-                completion(.failure(.invalidURL))
+    // Функция для загрузки картинки
+    func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+        guard let url = URL(string: url ?? "") else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: url) else {
+                completion(.failure(.noData))
                 return
             }
-            DispatchQueue.global().async {
-                guard let imageData = try? Data(contentsOf: url) else {
-                    completion(.failure(.noData))
-                    return
-                }
-                DispatchQueue.main.async {
-                    completion(.success(imageData))
-                }
+            DispatchQueue.main.async {
+                completion(.success(imageData))
             }
         }
-        
-        // Эту функицю я написал для себя? чтобы упросить дальнейшие get-запросы
-    func fetch<T: Decodable>(_ url: URLRequest) -> AnyPublisher<T, Error> {
+    }
+    
+    func getInfoAboutAccount(with token: String) -> AnyPublisher<PersonalInfo, Never> {
+        guard let url = URL(string: API.url.rawValue + Chats.allChats.rawValue) else {
+            return  Just(PersonalInfo(id: 1, fullName: "", email: "", avatar: "", status: "", workday: "")).eraseToAnyPublisher()
+        }
+        print(url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.setValue("ru", forHTTPHeaderField: "Lang")
+        return fetch(request)
+            .map { (response: Profile) -> PersonalInfo in
+                return response.data
+            }
+            .replaceError(with: PersonalInfo(id: 1, fullName: "", email: "", avatar: "", status: "", workday: ""))
+            .eraseToAnyPublisher()
+    }
+    
+}
+
+// MARK: func for me
+extension Network {
+    // Эту функицю я написал для себя, чтобы упросить дальнейшие get-запросы
+    private func fetch<T: Decodable>(_ url: URLRequest) -> AnyPublisher<T, Error> {
         return URLSession.shared
             .dataTaskPublisher(for: url)
             .map { $0.data}
@@ -156,5 +182,27 @@ final class Network: ObservableObject {
             .receive(on: RunLoop.main)
             .print()
             .eraseToAnyPublisher()
+    }
+}
+
+// MARK: URL - functions
+extension Network {
+    private func postToken() -> String {
+        API.url.rawValue + Token.getToken.rawValue
+    }
+    
+    private func postRefreshToken() -> String {
+        API.url.rawValue + Token.refreshToken.rawValue
+    }
+    
+    private func postSendMessage(with item: DataItem) -> String {
+        API.url.rawValue
+        + MessageBuilder.licenses.rawValue
+        + item.licenseId.formatted()
+        + MessageBuilder.messenger.rawValue
+        + item.messengerType
+        + MessageBuilder.chatId.rawValue
+        + item.id
+        + MessageBuilder.messageAndText.rawValue
     }
 }
