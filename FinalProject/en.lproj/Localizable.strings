@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  FinalProject
+
+  Created by Михаил Ганин on 10.08.2024.
+  
+*/
+
+"next" = "Next";
+"number" = "Enter number";
+"code_confirmation" = "We send code of confirmation \n on your phone";
