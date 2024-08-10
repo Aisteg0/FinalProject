@@ -19,7 +19,7 @@ final class ViewModel: ObservableObject {
     
     
     init() {
-        getToken()
+        refreshToken()
     }
     
     func getToken() {
@@ -38,6 +38,7 @@ final class ViewModel: ObservableObject {
             switch result {
             case .success(let token):
                 self?.token = token
+                print(token)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -48,8 +49,6 @@ final class ViewModel: ObservableObject {
         network.fetchAllItems(with: token)
             .assign(to: \.items, on: self)
             .store(in: &self.cancellables)
-        
-        print(items)
     }
     
     func getDatum() {

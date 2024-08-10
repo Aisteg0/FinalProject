@@ -25,14 +25,14 @@ enum ProfileInfoURL: String {
 }
 
 
-enum PersonalData: String {
-    case email = "SergeyD0205@yandex.ru"
-    case password = "16a85a64eac5302945dcf541777b0bf0"
-    case appid = "app_29499_1"
-}
-
 //enum PersonalData: String {
-//    case email = "viktorlala@yandex.ru"
-//    case password = "Viski1357("
-//    case appid = "app_49442_1"
+//    case email = "SergeyD0205@yandex.ru"
+//    case password = "16a85a64eac5302945dcf541777b0bf0"
+//    case appid = "app_29499_1"
 //}
+
+enum PersonalData: String {
+    case email = "viktorlala@yandex.ru"
+    case password = "Viski1357("
+    case appid = "app_49442_1"
+}

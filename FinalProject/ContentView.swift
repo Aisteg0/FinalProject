@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: ViewModel
     var body: some View {
-        Text("HelloWotld")
+        VStack {
+            Button("Items", action: {
+                viewModel.getDatum()
+            })
+            Text("\(viewModel.datum.count)")
+        }
         .padding()
     }
 }

@@ -84,6 +84,7 @@ final class Network: ObservableObject {
                     guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else { return }
                     guard let data = json["data"] as? [String: Any] else { return }
                     guard let refreshToken = data["accessToken"] as? String else { return }
+                    print(refreshToken)
                     completion(.success(refreshToken))
                 }
             }
@@ -118,31 +119,6 @@ final class Network: ObservableObject {
         request.httpMethod = "GET"
         request.setValue(token, forHTTPHeaderField: "Authorization")
         request.setValue("ru", forHTTPHeaderField: "Lang")
-        
-        let queryItems = [
-//            URLQueryItem(name: "companyId", value: "personal"),
-//            URLQueryItem(name: "filter[search][field]", value: "name"),
-//            URLQueryItem(name: "filter[search][query]", value: "Hello"),
-//            URLQueryItem(name: "filter[licenseIds]", value: "537,535"),
-            URLQueryItem(name: "filter[messengerTypes]", value: "WhatsApp"),
-//            URLQueryItem(name: "filter[responsibleIds]", value: "null,237,235"),
-//            URLQueryItem(name: "filter[producerIds]", value: "null,237,235"),
-//            URLQueryItem(name: "filter[accompliceIds]", value: "null,237,235"),
-//            URLQueryItem(name: "filter[auditorIds]", value: "null,237,235"),
-//            URLQueryItem(name: "filter[status]", value: "null"),
-//            URLQueryItem(name: "filter[unreadMessages]", value: "0"),
-//            URLQueryItem(name: "filter[tagIds]", value: "null,537,535"),
-//            URLQueryItem(name: "filter[levelIds]", value: "null,123,555"),
-//            URLQueryItem(name: "filter[pin]", value: "0"),
-//            URLQueryItem(name: "lastTime", value: "1627887999"),
-//            URLQueryItem(name: "lastInternalId", value: "568756"),
-//            URLQueryItem(name: "limit", value: "20")
-        ]
-
-        if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) {
-            urlComponents.queryItems = queryItems
-            request.url = urlComponents.url
-        }
         return fetch(request)
             .map { (response: ItemsModel) -> [DataItem] in
                 return response.data.items
