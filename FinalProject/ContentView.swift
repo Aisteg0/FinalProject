@@ -10,8 +10,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         Authorization()
+            .preferredColorScheme(.dark)
     }
 }
+
 
 #Preview {
     ContentView()

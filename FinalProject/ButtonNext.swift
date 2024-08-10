@@ -17,7 +17,7 @@ struct ButtonNext: View {
             Text("next")
         })
         .frame(width: Constants.width, height: Constants.height)
-        .background(Color.accent2)
+        .background(colorScheme == .light ? Color.accentLight2 : Color.accentDark2)
         .cornerRadius(Constants.cornerRadius)
         .foregroundColor(.white)
         .padding(.top, Constants.paddingForButton)

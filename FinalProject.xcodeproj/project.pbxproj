@@ -18,8 +18,6 @@
 		8CE8A3A92C66CCA0002AB987 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CE8A3A72C66CCA0002AB987 /* Localizable.strings */; };
 		8CE8A3AC2C66CD36002AB987 /* ButtonNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8A3AB2C66CD36002AB987 /* ButtonNext.swift */; };
 		8CE8A3AE2C677640002AB987 /* Extention+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8A3AD2C677640002AB987 /* Extention+Color.swift */; };
-		8CE8A3B22C67CE77002AB987 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8A3B12C67CE77002AB987 /* ColorScheme.swift */; };
-		8CE8A3B42C67D334002AB987 /* ColorSchemeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8A3B32C67D334002AB987 /* ColorSchemeState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +34,6 @@
 		8CE8A3AA2C66CCB8002AB987 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8CE8A3AB2C66CD36002AB987 /* ButtonNext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNext.swift; sourceTree = "<group>"; };
 		8CE8A3AD2C677640002AB987 /* Extention+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+Color.swift"; sourceTree = "<group>"; };
-		8CE8A3B12C67CE77002AB987 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
-		8CE8A3B32C67D334002AB987 /* ColorSchemeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +74,6 @@
 				8CE8A39F2C66CB5A002AB987 /* Authorization.swift */,
 				8CE8A3A12C66CB72002AB987 /* TextView.swift */,
 				8CE8A3A32C66CB98002AB987 /* EnterNumber.swift */,
-				8CE8A3B02C67CE5E002AB987 /* ColorScheme */,
 				8CE8A3AF2C677646002AB987 /* Extention */,
 				8CE8A3A72C66CCA0002AB987 /* Localizable.strings */,
 				8CE8A3952C66657B002AB987 /* Assets.xcassets */,
@@ -101,15 +96,6 @@
 				8CE8A3AD2C677640002AB987 /* Extention+Color.swift */,
 			);
 			path = Extention;
-			sourceTree = "<group>";
-		};
-		8CE8A3B02C67CE5E002AB987 /* ColorScheme */ = {
-			isa = PBXGroup;
-			children = (
-				8CE8A3B12C67CE77002AB987 /* ColorScheme.swift */,
-				8CE8A3B32C67D334002AB987 /* ColorSchemeState.swift */,
-			);
-			path = ColorScheme;
 			sourceTree = "<group>";
 		};
 		8CE8A3B52C67E844002AB987 /* View */ = {
@@ -192,8 +178,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CE8A3AE2C677640002AB987 /* Extention+Color.swift in Sources */,
-				8CE8A3B22C67CE77002AB987 /* ColorScheme.swift in Sources */,
-				8CE8A3B42C67D334002AB987 /* ColorSchemeState.swift in Sources */,
 				8CE8A3A42C66CB98002AB987 /* EnterNumber.swift in Sources */,
 				8CE8A3A02C66CB5A002AB987 /* Authorization.swift in Sources */,
 				8CE8A3AC2C66CD36002AB987 /* ButtonNext.swift in Sources */,
