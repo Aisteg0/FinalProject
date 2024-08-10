@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65BC9FF32C677AA6002C4E2F /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BC9FF22C677AA6002C4E2F /* ViewExtension.swift */; };
+		65BC9FF82C678280002C4E2F /* UISystem in Frameworks */ = {isa = PBXBuildFile; productRef = 65BC9FF72C678280002C4E2F /* UISystem */; };
 		8CE8A3922C66657A002AB987 /* FinalProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */; };
 		8CE8A3942C66657A002AB987 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8A3932C66657A002AB987 /* ContentView.swift */; };
 		8CE8A3962C66657B002AB987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE8A3952C66657B002AB987 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65BC9FF22C677AA6002C4E2F /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		65BC9FF52C678250002C4E2F /* UISystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UISystem; sourceTree = "<group>"; };
 		8CE8A38E2C66657A002AB987 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectApp.swift; sourceTree = "<group>"; };
 		8CE8A3932C66657A002AB987 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,17 +30,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BC9FF82C678280002C4E2F /* UISystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65BC9FF12C677A88002C4E2F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				65BC9FF22C677AA6002C4E2F /* ViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		65BC9FF42C678222002C4E2F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				65BC9FF52C678250002C4E2F /* UISystem */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		65BC9FF62C678280002C4E2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8CE8A3852C666579002AB987 = {
 			isa = PBXGroup;
 			children = (
 				8CE8A3902C66657A002AB987 /* FinalProject */,
 				8CE8A38F2C66657A002AB987 /* Products */,
+				65BC9FF62C678280002C4E2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,8 +80,10 @@
 		8CE8A3902C66657A002AB987 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				65BC9FF42C678222002C4E2F /* Modules */,
 				8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */,
 				8CE8A3932C66657A002AB987 /* ContentView.swift */,
+				65BC9FF12C677A88002C4E2F /* Extensions */,
 				8CE8A3952C66657B002AB987 /* Assets.xcassets */,
 				8CE8A3972C66657B002AB987 /* Preview Content */,
 			);
@@ -83,6 +114,9 @@
 			dependencies = (
 			);
 			name = FinalProject;
+			packageProductDependencies = (
+				65BC9FF72C678280002C4E2F /* UISystem */,
+			);
 			productName = FinalProject;
 			productReference = 8CE8A38E2C66657A002AB987 /* FinalProject.app */;
 			productType = "com.apple.product-type.application";
@@ -137,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BC9FF32C677AA6002C4E2F /* ViewExtension.swift in Sources */,
 				8CE8A3942C66657A002AB987 /* ContentView.swift in Sources */,
 				8CE8A3922C66657A002AB987 /* FinalProjectApp.swift in Sources */,
 			);
@@ -197,7 +232,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -254,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -280,6 +315,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +345,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +381,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		65BC9FF72C678280002C4E2F /* UISystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UISystem;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8CE8A3862C66657A002AB987 /* Project object */;
 }
