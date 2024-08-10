@@ -19,7 +19,7 @@ final class ViewModel: ObservableObject {
     
     
     init() {
-        refreshToken()
+        getToken()
     }
     
     func getToken() {
@@ -27,6 +27,7 @@ final class ViewModel: ObservableObject {
             switch result {
             case .success(let token):
                 self?.token = token
+                print(token)
             case .failure(let error):
                 print(error.localizedDescription)
             }

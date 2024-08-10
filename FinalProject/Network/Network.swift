@@ -113,8 +113,9 @@ final class Network: ObservableObject {
     // Возвращает массив объектов, по моделе: AllItemsModel
     func fetchAllItems(with token: String) -> AnyPublisher<[DataItem], Never> {
         guard let url = URL(string: API.url.rawValue + Chats.allChats.rawValue) else {
-                return  Just([DataItem]()).eraseToAnyPublisher()
-                }
+            return  Just([DataItem]()).eraseToAnyPublisher()
+        }
+        print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(token, forHTTPHeaderField: "Authorization")

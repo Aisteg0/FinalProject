@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: ViewModel
+    @State private var text = ""
     var body: some View {
         VStack {
             Button("Items", action: {
-                viewModel.getDatum()
+                viewModel.fetchAllItems()
             })
-            Text("\(viewModel.datum.count)")
+            Text("\(viewModel.items.count)")
         }
         .padding()
     }
@@ -23,5 +24,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ViewModel())
     }
 }
