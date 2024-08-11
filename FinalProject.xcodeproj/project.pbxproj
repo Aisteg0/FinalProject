@@ -68,7 +68,6 @@
 			children = (
 				656BDA352C69148A00FDAC90 /* Profile */,
 				656BDA362C69149700FDAC90 /* SettingsView.swift */,
-				656BDA382C6914A200FDAC90 /* ProfileRow.swift */,
 			);
 			path = SettingsModule;
 			sourceTree = "<group>";
@@ -103,6 +102,7 @@
 		656BDA3C2C6914CF00FDAC90 /* ProfileViews */ = {
 			isa = PBXGroup;
 			children = (
+				656BDA382C6914A200FDAC90 /* ProfileRow.swift */,
 				656BDA3D2C6914D900FDAC90 /* ProfileScreen.swift */,
 				656BDA3F2C6914E000FDAC90 /* ProfileView.swift */,
 				656BDA412C6914E700FDAC90 /* ProfileAvatarView.swift */,

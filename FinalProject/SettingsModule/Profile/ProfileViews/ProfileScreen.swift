@@ -6,27 +6,30 @@
 //
 
 import SwiftUI
+import Router
 
 struct ProfileScreen: View {
     let profile: PersonalInfo
-    //@EnvironmentObject var router: Router
+    @EnvironmentObject var router: Router<MainRoute>
     
     
     var body: some View {
             VStack(spacing: 60) {
-                ProfileAvatarView(profile: profile)
+                ProfileAvatarView(avatar: profile.avatar, side: 200)
+                    .padding(.top, 80)
                 ProfileView(profile: profile)
                 SocialNetworkView()
                     .padding(.top, -20)
+                Spacer()
             }
             
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        //router.goBack()
+                        router.dismiss()
                     } label: {
                         HStack {
-                            Image("vector")
+                            Image(systemName: "chevron.left")
                             Text("Контакты")
                                 .foregroundColor(.black)
                         }

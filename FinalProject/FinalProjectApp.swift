@@ -6,12 +6,25 @@
 //
 
 import SwiftUI
+import Router
 
 @main
 struct FinalProjectApp: App {
+    @StateObject private var authManager = AuthManager(storageManager: StorageManager())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if authManager.isUserAuthorized {
+                RoutingView(MainRoute.self) {
+                    SettingsView() //ChatsView()
+                }
+                .environmentObject(authManager)
+            } else {
+                RoutingView(MainRoute.self) {
+                    SettingsView() //LoginView()
+                }
+                .environmentObject(authManager)
+            }
         }
     }
 }

@@ -8,29 +8,29 @@
 import SwiftUI
 
 struct ProfileAvatarView: View {
-    let profile: PersonalInfo
+    let avatar: String
+    let side: CGFloat
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: profile.avatar)) { phase in
+            AsyncImage(url: URL(string: avatar)) { phase in
                 if let image = phase.image {
                     image
                         .resizable()
-                        .frame(width: 200, height: 200)
+                        .frame(width: side, height: side)
                         .clipShape(Circle())
                 } else {
                     Image("person")
                         .resizable()
-                        .renderingMode(.template)
                         .foregroundColor(.black)
-                        .frame(width: 112, height: 112)
+                        .frame(width: side * 0.56, height: side * 0.56)
                         .clipShape(Circle())
                 }
             }
         }
-        .frame(width: 200, height: 200)
+        .frame(width: side, height: side)
         .background {
             Circle()
-                .frame(width: 200, height: 200)
+                .frame(width: side, height: side)
                 .foregroundColor(Color(red: RGBColor(247), green: RGBColor(247), blue: RGBColor(252)))
         }
     }
@@ -43,5 +43,5 @@ extension ProfileAvatarView {
 }
 
 #Preview {
-    ProfileAvatarView(profile: PersonalInfo(id: 111, fullName: "Test test", email: "123@gmail.com", avatar: "https://flomaster.top/o/uploads/posts/2024-02/1708364185_flomaster-top-p-smeshariki-pingvin-instagram-narisovannie-15.jpg", status: "", workday: ""))
+    ProfileAvatarView(avatar: "https://flomaster.top/o/uploads/posts/2024-02/1708364185_flomaster-top-p-smeshariki-pingvin-instagram-narisovannie-15.jpg", side: 200)
 }
