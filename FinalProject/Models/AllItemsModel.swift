@@ -16,7 +16,7 @@ struct DataClass: Codable {
     let items: [DataItem]
 }
 
-struct DataItem: Codable{
+struct DataItem: Codable {
     let id: String
     let internalId, licenseId: Int
     let messengerType, type: String

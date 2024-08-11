@@ -15,6 +15,7 @@
 		E70C53B42C66995300C6BC5F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C53B32C66995300C6BC5F /* Network.swift */; };
 		E70C53B72C66B3DD00C6BC5F /* AllItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C53B62C66B3DD00C6BC5F /* AllItemsModel.swift */; };
 		E70C53BB2C66C18800C6BC5F /* LicensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C53BA2C66C18800C6BC5F /* LicensesModel.swift */; };
+		E772A98B2C69321C006027B3 /* MessagesInCurrentChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E772A98A2C69321C006027B3 /* MessagesInCurrentChatModel.swift */; };
 		E7C335202C681B9A00991F8B /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C3351F2C681B9A00991F8B /* ProfileModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		E70C53B32C66995300C6BC5F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E70C53B62C66B3DD00C6BC5F /* AllItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemsModel.swift; sourceTree = "<group>"; };
 		E70C53BA2C66C18800C6BC5F /* LicensesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesModel.swift; sourceTree = "<group>"; };
+		E772A98A2C69321C006027B3 /* MessagesInCurrentChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesInCurrentChatModel.swift; sourceTree = "<group>"; };
 		E7C3351F2C681B9A00991F8B /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				E70C53B62C66B3DD00C6BC5F /* AllItemsModel.swift */,
 				E70C53BA2C66C18800C6BC5F /* LicensesModel.swift */,
 				E7C3351F2C681B9A00991F8B /* ProfileModel.swift */,
+				E772A98A2C69321C006027B3 /* MessagesInCurrentChatModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				E70C53B22C66915400C6BC5F /* ApiData.swift in Sources */,
 				8CE8A3942C66657A002AB987 /* ContentView.swift in Sources */,
 				8CE8A3922C66657A002AB987 /* FinalProjectApp.swift in Sources */,
+				E772A98B2C69321C006027B3 /* MessagesInCurrentChatModel.swift in Sources */,
 				E70C53B42C66995300C6BC5F /* Network.swift in Sources */,
 				E70C53BB2C66C18800C6BC5F /* LicensesModel.swift in Sources */,
 				E7C335202C681B9A00991F8B /* ProfileModel.swift in Sources */,

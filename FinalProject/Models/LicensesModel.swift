@@ -17,7 +17,7 @@ struct Datum: Codable {
     let licenseName: String?
     let meOwner: Bool
     let status: Status?
-    let messenger, app: [App]
+    let messenger, app: [Apps]
     let access: [Access]
     let type: String
     let companies: [Int]
@@ -34,7 +34,7 @@ struct Access: Codable {
 }
 
 // MARK: - App
-struct App: Codable {
+struct Apps: Codable {
     let type: String
     let name: String
 }

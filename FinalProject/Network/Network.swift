@@ -172,6 +172,23 @@ extension Network {
             .eraseToAnyPublisher()
     }
     
+    func getMessages(with token: String, and messanger: DataItem) -> AnyPublisher<[CurrentMessages], Never>  {
+        guard let url = URL(string: postSendMessage(with: messanger)) else {
+            return  Just([CurrentMessages]()).eraseToAnyPublisher()
+        }
+            var request = URLRequest(url: url)
+            request.httpMethod = "Get"
+            request.setValue(token, forHTTPHeaderField: "Authorization")
+            request.setValue("ru", forHTTPHeaderField: "Lang")
+        
+        return fetch(request)
+            .map { (response: MessagesInChat) -> [CurrentMessages] in
+                return response.data.items
+            }
+            .replaceError(with: [CurrentMessages]())
+            .eraseToAnyPublisher()
+    }
+    
     // Функция для загрузки картинки
     func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: url ?? "") else {
@@ -205,6 +222,8 @@ extension Network {
             .replaceError(with: PersonalInfo(id: 1, fullName: "", email: "", avatar: "", status: "", workday: ""))
             .eraseToAnyPublisher()
     }
+    
+    
     
 }
 
@@ -246,12 +265,5 @@ extension Network {
     
     private func getProfile() -> String {
         API.url.rawValue + ProfileInfoURL.me.rawValue
-    }
-}
-
-extension URL {
-    func valueOf(_ queryParameterName: String) -> String? {
-        guard let url = URLComponents(string: self.absoluteString) else { return nil }
-        return url.queryItems?.first(where: { $0.name == queryParameterName })?.value
     }
 }
