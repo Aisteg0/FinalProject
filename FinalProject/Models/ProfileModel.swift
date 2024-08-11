@@ -15,8 +15,8 @@ struct Profile: Codable {
 
 // MARK: - DataClass
 struct PersonalInfo: Codable {
-    let id: Int?
-    let fullName, email: String?
-    let avatar: String?
-    let status, workday: String?
+    let id: Int
+    let fullName, email: String
+    let avatar: String
+    let status, workday: String
 }

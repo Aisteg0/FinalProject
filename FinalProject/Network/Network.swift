@@ -153,7 +153,7 @@ extension Network {
     }
     
     func getInfoAboutAccount(with token: String) -> AnyPublisher<PersonalInfo, Never> {
-        guard let url = URL(string: API.url.rawValue + Chats.allChats.rawValue) else {
+        guard let url = URL(string: getProfile()) else {
             return  Just(PersonalInfo(id: 1, fullName: "", email: "", avatar: "", status: "", workday: "")).eraseToAnyPublisher()
         }
         print(url)
@@ -204,5 +204,9 @@ extension Network {
         + MessageBuilder.chatId.rawValue
         + item.id
         + MessageBuilder.messageAndText.rawValue
+    }
+    
+    private func getProfile() -> String {
+        API.url.rawValue + ProfileInfoURL.me.rawValue
     }
 }

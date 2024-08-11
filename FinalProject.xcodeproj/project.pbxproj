@@ -15,6 +15,7 @@
 		E70C53B42C66995300C6BC5F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C53B32C66995300C6BC5F /* Network.swift */; };
 		E70C53B72C66B3DD00C6BC5F /* AllItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C53B62C66B3DD00C6BC5F /* AllItemsModel.swift */; };
 		E70C53BB2C66C18800C6BC5F /* LicensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70C53BA2C66C18800C6BC5F /* LicensesModel.swift */; };
+		E74794682C68BB6500293DF3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74794672C68BB6500293DF3 /* ViewModel.swift */; };
 		E7C335202C681B9A00991F8B /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C3351F2C681B9A00991F8B /* ProfileModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		E70C53B32C66995300C6BC5F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E70C53B62C66B3DD00C6BC5F /* AllItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemsModel.swift; sourceTree = "<group>"; };
 		E70C53BA2C66C18800C6BC5F /* LicensesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesModel.swift; sourceTree = "<group>"; };
+		E74794672C68BB6500293DF3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E7C3351F2C681B9A00991F8B /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 			children = (
 				8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */,
 				8CE8A3932C66657A002AB987 /* ContentView.swift */,
+				E74794672C68BB6500293DF3 /* ViewModel.swift */,
 				E70C53B52C66B3D200C6BC5F /* Models */,
 				E70C53AE2C6684A900C6BC5F /* Network */,
 				8CE8A3952C66657B002AB987 /* Assets.xcassets */,
@@ -174,6 +177,7 @@
 				8CE8A3922C66657A002AB987 /* FinalProjectApp.swift in Sources */,
 				E70C53B42C66995300C6BC5F /* Network.swift in Sources */,
 				E70C53BB2C66C18800C6BC5F /* LicensesModel.swift in Sources */,
+				E74794682C68BB6500293DF3 /* ViewModel.swift in Sources */,
 				E7C335202C681B9A00991F8B /* ProfileModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
