@@ -14,6 +14,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		656BDA302C69139100FDAC90 /* UISystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UISystem; sourceTree = "<group>"; };
+		656BDA312C6913A600FDAC90 /* Router */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Router; sourceTree = "<group>"; };
 		8CE8A38E2C66657A002AB987 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectApp.swift; sourceTree = "<group>"; };
 		8CE8A3932C66657A002AB987 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +34,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		656BDA2F2C69132700FDAC90 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				656BDA312C6913A600FDAC90 /* Router */,
+				656BDA302C69139100FDAC90 /* UISystem */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		8CE8A3852C666579002AB987 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +62,7 @@
 		8CE8A3902C66657A002AB987 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				656BDA2F2C69132700FDAC90 /* Modules */,
 				8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */,
 				8CE8A3932C66657A002AB987 /* ContentView.swift */,
 				8CE8A3952C66657B002AB987 /* Assets.xcassets */,
