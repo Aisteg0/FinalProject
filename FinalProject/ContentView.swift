@@ -8,22 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var viewModel: ViewModel
     var body: some View {
-        VStack(spacing: 15) {
-            Button("Get profile") {
-                viewModel.getProfile()
-            }
-            Text(viewModel.profile.fullName ?? "Name")
-            Text(viewModel.profile.email ?? "Email")
-            Text(viewModel.profile.status ?? "Status")
-        }
+        Text("Все работает!")
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(ViewModel())
     }
 }

@@ -87,12 +87,51 @@ extension Network {
                     guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else { return }
                     guard let data = json["data"] as? [String: Any] else { return }
                     guard let refreshToken = data["accessToken"] as? String else { return }
-                    print(refreshToken)
                     completion(.success(refreshToken))
                 }
             }
             .store(in: &cancellables)
     }
+    
+    
+        func postSendMessage(in messanger: DataItem, _ token: String, _ text: String) {
+            guard let url = URL(string: postSendMessage(with: messanger)) else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue(token, forHTTPHeaderField: "Authorization")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("ru", forHTTPHeaderField: "Lang")
+    
+            let json: [String : String] = ["text": text]
+    
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: json)
+            } catch {
+                print("Error: Unable to serialize payload")
+            }
+    
+            URLSession.shared
+                .dataTaskPublisher(for: request)
+                .receive(on: DispatchQueue.global())
+                .print()
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("Fin")
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                } receiveValue: { result in
+                    switch result {
+                    case ( _, _): break
+//                        print("DATA")
+//                        print(data)
+//                        print("RESPONSE")
+//                        print(response)
+                    }
+                }
+                .store(in: &cancellables)
+        }
 }
 
 // MARK: Get - requests
@@ -103,7 +142,6 @@ extension Network {
         guard let url = URL(string: API.url.rawValue + Chats.licenses.rawValue) else {
             return  Just([Datum]()).eraseToAnyPublisher()
         }
-        print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(token, forHTTPHeaderField: "Authorization")
@@ -117,12 +155,11 @@ extension Network {
             .eraseToAnyPublisher()
     }
     
-    // Возвращает массив объектов, по моделе: AllItemsModel
+    // Возвращает массив чатов, по моделе: AllItemsModel
     func getAllItems(with token: String) -> AnyPublisher<[DataItem], Never> {
         guard let url = URL(string: API.url.rawValue + Chats.allChats.rawValue) else {
             return  Just([DataItem]()).eraseToAnyPublisher()
         }
-        print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(token, forHTTPHeaderField: "Authorization")
@@ -152,11 +189,11 @@ extension Network {
         }
     }
     
+    // Функция для загрузки информации о профиле 
     func getInfoAboutAccount(with token: String) -> AnyPublisher<PersonalInfo, Never> {
         guard let url = URL(string: getProfile()) else {
             return  Just(PersonalInfo(id: 1, fullName: "", email: "", avatar: "", status: "", workday: "")).eraseToAnyPublisher()
         }
-        print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(token, forHTTPHeaderField: "Authorization")
@@ -196,9 +233,10 @@ extension Network {
     }
     
     private func postSendMessage(with item: DataItem) -> String {
-        API.url.rawValue
+        print(item.licenseId)
+        return API.url.rawValue
         + MessageBuilder.licenses.rawValue
-        + item.licenseId.formatted()
+        + String(item.licenseId)
         + MessageBuilder.messenger.rawValue
         + item.messengerType
         + MessageBuilder.chatId.rawValue
@@ -208,5 +246,12 @@ extension Network {
     
     private func getProfile() -> String {
         API.url.rawValue + ProfileInfoURL.me.rawValue
+    }
+}
+
+extension URL {
+    func valueOf(_ queryParameterName: String) -> String? {
+        guard let url = URLComponents(string: self.absoluteString) else { return nil }
+        return url.queryItems?.first(where: { $0.name == queryParameterName })?.value
     }
 }

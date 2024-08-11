@@ -34,7 +34,7 @@ enum ProfileInfoURL: String {
 
 
 enum PersonalData: String {
-    case email = "viktorlala@yandex.ru"
-    case password = "Viski1357("
-    case appid = "app_49442_1"
+    case email = "email"
+    case password = "Bye"
+    case appid = "Heloo"
 }
