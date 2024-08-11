@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: Модель для примера
+
 struct DataItemExample: Codable {
     let name: String
     let image: String
