@@ -7,33 +7,33 @@
 
 import Foundation
 
-enum API: String {
+internal enum API: String {
     case url = "https://api.chatapp.online"
 }
-enum Token: String {
+internal enum Token: String {
     case getToken = "/v1/tokens"
     case refreshToken = "/v1/tokens/refresh"
 }
 
-enum Chats: String {
+internal enum Chats: String {
     case licenses = "/v1/licenses"
     case allChats = "/v1/chats"
     case currentMessage = "v1/licenses/{licenseId/messengers/{messengerType}/chats/{chatId}/messages/text"
 }
 
-enum MessageBuilder: String {
+internal enum MessageBuilder: String {
     case licenses = "/v1/licenses/"
     case messenger = "/messengers/"
     case chatId = "/chats/"
     case messageAndText = "/messages/text"
 }
 
-enum ProfileInfoURL: String {
+internal enum ProfileInfoURL: String {
     case me = "/v1/me"
 }
 
 
-enum PersonalData: String {
+internal enum PersonalData: String {
     case email = "1"
     case password = "2"
     case appid = "3"

@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Combine
 
-protocol AuthManagerProtocol: ObservableObject {
+public protocol AuthManagerProtocol: ObservableObject {
     var isUserAuthorized: Bool { get }
 
     func authorizeUser()
@@ -20,11 +21,11 @@ protocol AuthManagerProtocol: ObservableObject {
     func getAvatar() -> String?
 }
 
-final class AuthManager {
-    @Published private(set) var isUserAuthorized: Bool = false
+public class AuthManager {
+    @Published private(set) public var isUserAuthorized: Bool = false
     private let storageManager: StorageManagerProtocol
 
-    init(storageManager: StorageManagerProtocol) {
+    public init(storageManager: StorageManagerProtocol) {
         self.storageManager = storageManager
     }
 }
@@ -32,39 +33,39 @@ final class AuthManager {
 // MARK: - AuthManagerProtocol
 extension AuthManager: AuthManagerProtocol {
     
-    func authorizeUser() {
+    public func authorizeUser() {
         isUserAuthorized = true
         storageManager.set(isUserAuthorized, forKey: .isAuthorized)
     }
     
-    func logoutUser() {
+    public func logoutUser() {
         isUserAuthorized = false
         storageManager.remove(forKey: .isAuthorized)
         storageManager.remove(forKey: .phoneNumber)
         storageManager.remove(forKey: .email)
     }
     
-    func saveFullName(_ name: String) {
+    public func saveFullName(_ name: String) {
         storageManager.set(object: name, forKey: .fullName)
     }
     
-    func getFullName() -> String? {
+    public func getFullName() -> String? {
         storageManager.string(forKey: .fullName)
     }
     
-    func saveEmail(_ email: String) {
+    public func saveEmail(_ email: String) {
         storageManager.set(object: email, forKey: .email)
     }
     
-    func getEmail() -> String? {
+    public func getEmail() -> String? {
         storageManager.string(forKey: .email)
     }
     
-    func saveAvatar(_ avatar: String) {
+    public func saveAvatar(_ avatar: String) {
         storageManager.set(avatar, forKey: .avatar)
     }
     
-    func getAvatar() -> String? {
+    public func getAvatar() -> String? {
         storageManager.string(forKey: .avatar)
     }
     

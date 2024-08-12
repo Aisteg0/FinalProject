@@ -7,6 +7,8 @@
 
 import Foundation
 import Combine
+import Models
+import StorageModule
 
 enum NetworkError: Error {
     case invalidURL
@@ -27,8 +29,8 @@ protocol NetworkProtocol {
 }
 
 final class Network: NetworkProtocol {
-    private var user = AuthManager(storageManager: StorageManager())
-    private var cancellables = Set<AnyCancellable>()
+    private(set) public var user = AuthManager(storageManager: StorageManager())
+    private(set) public var cancellables = Set<AnyCancellable>()
 //    private var user = UserDefaults.standard
 }
 
@@ -36,7 +38,7 @@ final class Network: NetworkProtocol {
 extension Network {
     
     // Генерирует токен и в completion его возвращает (лучше реализовать метод в начале запуска приложения , лушче всего в init() классе)
-    func postNewToken(with personalData: PersonalData.Type, _ completion: @escaping(Result<String, NetworkError>) -> Void) {
+    public func postNewToken(with personalData: PersonalData.Type, _ completion: @escaping(Result<String, NetworkError>) -> Void) {
         guard let url = URL(string: postToken()) else {
             return completion(.failure(.invalidURL))
             
@@ -75,7 +77,7 @@ extension Network {
     }
     
     // Заново генерирует токен, если предыдущий перестал работать, в completion его возвращает (лучше реализовать метод в начале запуска приложения , лушче всего в init() классе)
-    func postRefreshToken(_ completion: @escaping(Result<String, NetworkError>) -> Void) {
+    public func postRefreshToken(_ completion: @escaping(Result<String, NetworkError>) -> Void) {
         guard let url = URL(string: postRefreshToken()) else {
             return completion(.failure(.invalidURL))
             
@@ -108,7 +110,7 @@ extension Network {
     }
     
     
-        func postSendMessage(in messanger: DataItem, _ token: String?, _ text: String) {
+        public func postSendMessage(in messanger: DataItem, _ token: String?, _ text: String) {
             guard let url = URL(string: postSendMessage(with: messanger)) else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -144,7 +146,7 @@ extension Network {
 extension Network {
     
     // Возвращает массив чатов, с полной информацией о них, для того, чтобы далее использовать инфу для отправки сообщения
-    func getLicenses(with token: String?) -> AnyPublisher<[Datum], Never>  {
+    public func getLicenses(with token: String?) -> AnyPublisher<[Datum], Never>  {
         guard let url = URL(string: API.url.rawValue + Chats.licenses.rawValue) else {
             return  Just([Datum]()).eraseToAnyPublisher()
         }
@@ -162,7 +164,7 @@ extension Network {
     }
     
     // Возвращает массив чатов, по моделе: AllItemsModel
-    func getAllItems(with token: String?) -> AnyPublisher<[DataItem], Never> {
+    public func getAllItems(with token: String?) -> AnyPublisher<[DataItem], Never> {
         guard let url = URL(string: API.url.rawValue + Chats.allChats.rawValue) else {
             return  Just([DataItem]()).eraseToAnyPublisher()
         }
@@ -179,7 +181,7 @@ extension Network {
     }
     
     // Возвращает массив сообщений
-    func getMessages(with token: String?, and messanger: DataItem) -> AnyPublisher<[CurrentMessages], Never>  {
+    public func getMessages(with token: String?, and messanger: DataItem) -> AnyPublisher<[CurrentMessages], Never>  {
         guard let url = URL(string: postSendMessage(with: messanger)) else {
             return  Just([CurrentMessages]()).eraseToAnyPublisher()
         }
@@ -197,7 +199,7 @@ extension Network {
     }
     
     // Функция для загрузки картинки
-    func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+    public func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: url ?? "") else {
             completion(.failure(.invalidURL))
             return
@@ -214,7 +216,7 @@ extension Network {
     }
     
     // Функция для загрузки информации о профиле в UserDefault
-    func getInfoAboutAccount(with token: String?) {
+    public func getInfoAboutAccount(with token: String?) {
         guard let url = URL(string: getProfile()) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -251,7 +253,7 @@ extension Network {
 // MARK: func for me
 extension Network {
     // Эту функицю я написал для себя, чтобы упросить дальнейшие get-запросы
-    private func fetch<T: Decodable>(_ url: URLRequest) -> AnyPublisher<T, Error> {
+    fileprivate func fetch<T: Decodable>(_ url: URLRequest) -> AnyPublisher<T, Error> {
         return URLSession.shared
             .dataTaskPublisher(for: url)
             .map { $0.data}
@@ -263,15 +265,15 @@ extension Network {
 
 // MARK: URL - functions
 extension Network {
-    private func postToken() -> String {
+    fileprivate func postToken() -> String {
         API.url.rawValue + Token.getToken.rawValue
     }
     
-    private func postRefreshToken() -> String {
+    fileprivate func postRefreshToken() -> String {
         API.url.rawValue + Token.refreshToken.rawValue
     }
     
-    private func postSendMessage(with item: DataItem) -> String {
+    fileprivate func postSendMessage(with item: DataItem) -> String {
         print(item.licenseId)
         return API.url.rawValue
         + MessageBuilder.licenses.rawValue
@@ -283,11 +285,11 @@ extension Network {
         + MessageBuilder.messageAndText.rawValue
     }
     
-    private func getProfile() -> String {
+    fileprivate func getProfile() -> String {
         API.url.rawValue + ProfileInfoURL.me.rawValue
     }
     
-    private func getProfileInUserD(name: String, email: String, avatar: String) {
+    fileprivate func getProfileInUserD(name: String, email: String, avatar: String) {
         user.saveFullName(name)
         user.saveEmail(email)
         user.saveAvatar(avatar)

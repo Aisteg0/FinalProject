@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol StorageManagerProtocol {
+public protocol StorageManagerProtocol {
     func set(_ object: Any?, forKey key: StorageManager.Keys)
     func set<T: Encodable>(object: T?, forKey key: StorageManager.Keys)
     func string(forKey key: StorageManager.Keys) -> String?
     func remove(forKey key: StorageManager.Keys)
 }
 
-final class StorageManager {
-    enum Keys: String {
+public class StorageManager {
+    public enum Keys: String {
         case isAuthorized
         case fullName
         case phoneNumber
@@ -23,7 +23,7 @@ final class StorageManager {
         case avatar
     }
     
-    private let userDefaults = UserDefaults.standard
+    private var userDefaults = UserDefaults.standard
     
     private func store(_ object: Any?, key: String) {
         userDefaults.set(object, forKey: key)
@@ -32,25 +32,29 @@ final class StorageManager {
     private func restore(forKey key: String) -> Any? {
         userDefaults.object(forKey: key)
     }
+    
+    public init(userDefaults: UserDefaults = UserDefaults.standard) {
+        self.userDefaults = userDefaults
+    }
 }
 
 // MARK: - StorageManagerProtocol
 extension StorageManager: StorageManagerProtocol {
     
-    func set(_ object: Any?, forKey key: Keys) {
+    public func set(_ object: Any?, forKey key: Keys) {
         store(object, key: key.rawValue)
     }
     
-    func set<T: Encodable>(object: T?, forKey key: Keys) {
+    public func set<T: Encodable>(object: T?, forKey key: Keys) {
         let jsonData = try? JSONEncoder().encode(object)
         store(jsonData, key: key.rawValue)
     }
 
-    func string(forKey key: Keys) -> String? {
+    public func string(forKey key: Keys) -> String? {
         restore(forKey: key.rawValue) as? String
     }
     
-    func remove(forKey key: Keys) {
+    public func remove(forKey key: Keys) {
         userDefaults.removeObject(forKey: key.rawValue)
     }
 }
