@@ -9,22 +9,40 @@ import SwiftUI
 import Router
 
 struct SettingsView: View {
+    @EnvironmentObject var router: Router<MainRoute>
+    var network: Network = .init()
+    /*тестоый юзер*/
     let profile: PersonalInfo = .init(id: 111,
                                       fullName: "Test test",
                                       email: "123@gmail.com",
                                       avatar: "https://flomaster.top/o/uploads/posts/2024-02/1708364185_flomaster-top-p-smeshariki-pingvin-instagram-narisovannie-15.jpg",
                                       status: "",
                                       workday: "")
+    let menuItems: [MenuItem] = [
+        MenuItem(icon: "sun.max", title: "Тема"),
+        MenuItem(icon: "bell", title: "Уведомления"),
+        MenuItem(icon: "shield", title: "Безопасность"),
+        MenuItem(icon: "envelope", title: "Пригласи друга")
+    ]
     
-    @EnvironmentObject var router: Router<MainRoute>
     var body: some View {
         VStack {
-            Button {
+            Button(action: {
                 router.routeTo(.profile(profile: profile))
-            } label: {
+            }) {
                 ProfileRow(profile: profile)
             }
+            
+            ForEach(menuItems) { item in
+                MenuRow(item: item) {
+                    //router.routeTo()
+                }
+                .foregroundStyle(.black) //цвет текста
+            }
+            Spacer()
         }
+        .padding(.top, 40)
+        .padding(.horizontal)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
@@ -33,13 +51,16 @@ struct SettingsView: View {
                     HStack {
                         Image(systemName: "chevron.left")
                         Text("Настройки")
-                            .foregroundColor(.black)
+                            .foregroundStyle(.black) //цвет текста
                     }
                     .bold()
                 }
             }
         }
-    .navigationBarBackButtonHidden()
+        .onAppear {
+            //network.getInfoAboutAccount(with: ) //токен, не понял от куда его доставать
+        }
+        .navigationBarBackButtonHidden()
     }
 }
 

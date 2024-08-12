@@ -1,14 +1,24 @@
-import SwiftUI
+
+//
+//  AuthManager.swift
+//  FinalProject
+//
+//  Created by Vladimir on 12.08.2024.
+//
+
+import Foundation
 
 protocol AuthManagerProtocol: ObservableObject {
     var isUserAuthorized: Bool { get }
 
     func authorizeUser()
     func logoutUser()
-    func savePhoneNumber(_ phoneNumber: String)
-    func getPhoneNumber() -> String?
-    func saveSMSCode(_ smsCode: String)
-    func getSMSCode() -> String?
+    func saveFullName(_ name: String)
+    func getFullName() -> String?
+    func saveEmail(_ email: String)
+    func getEmail() -> String?
+    func saveAvatar(_ avatar: String)
+    func getAvatar() -> String?
 }
 
 final class AuthManager {
@@ -17,12 +27,12 @@ final class AuthManager {
 
     init(storageManager: StorageManagerProtocol) {
         self.storageManager = storageManager
-        self.isUserAuthorized = storageManager.bool(forKey: .isAuthorized) ?? false
     }
 }
 
 // MARK: - AuthManagerProtocol
 extension AuthManager: AuthManagerProtocol {
+    
     func authorizeUser() {
         isUserAuthorized = true
         storageManager.set(isUserAuthorized, forKey: .isAuthorized)
@@ -32,22 +42,31 @@ extension AuthManager: AuthManagerProtocol {
         isUserAuthorized = false
         storageManager.remove(forKey: .isAuthorized)
         storageManager.remove(forKey: .phoneNumber)
-        storageManager.remove(forKey: .smsCode)
+        storageManager.remove(forKey: .email)
     }
-
-    func savePhoneNumber(_ phoneNumber: String) {
-        storageManager.set(phoneNumber, forKey: .phoneNumber)
+    
+    func saveFullName(_ name: String) {
+        storageManager.set(object: name, forKey: .fullName)
     }
-
-    func getPhoneNumber() -> String? {
-        return storageManager.string(forKey: .phoneNumber)
+    
+    func getFullName() -> String? {
+        storageManager.string(forKey: .fullName)
     }
-
-    func saveSMSCode(_ smsCode: String) {
-        storageManager.set(smsCode, forKey: .smsCode)
+    
+    func saveEmail(_ email: String) {
+        storageManager.set(object: email, forKey: .email)
     }
-
-    func getSMSCode() -> String? {
-        return storageManager.string(forKey: .smsCode)
+    
+    func getEmail() -> String? {
+        storageManager.string(forKey: .email)
     }
+    
+    func saveAvatar(_ avatar: String) {
+        storageManager.set(avatar, forKey: .avatar)
+    }
+    
+    func getAvatar() -> String? {
+        storageManager.string(forKey: .avatar)
+    }
+    
 }
