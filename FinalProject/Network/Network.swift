@@ -14,8 +14,22 @@ enum NetworkError: Error {
     case decodingError
 }
 
-final class Network: ObservableObject {
+protocol NetworkProtocol {
+    
+    func postNewToken(with personalData: PersonalData.Type, _ completion: @escaping(Result<String, NetworkError>) -> Void)
+    func postRefreshToken(_ completion: @escaping(Result<String, NetworkError>) -> Void)
+    func postSendMessage(in messanger: DataItem, _ token: String?, _ text: String)
+    func getLicenses(with token: String?) -> AnyPublisher<[Datum], Never>
+    func getAllItems(with token: String?) -> AnyPublisher<[DataItem], Never>
+    func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void)
+    func getInfoAboutAccount(with token: String?)
+    
+}
+
+final class Network: NetworkProtocol {
+    private var user = AuthManager(storageManager: StorageManager())
     private var cancellables = Set<AnyCancellable>()
+//    private var user = UserDefaults.standard
 }
 
 // MARK: POST - requests
@@ -94,7 +108,7 @@ extension Network {
     }
     
     
-        func postSendMessage(in messanger: DataItem, _ token: String, _ text: String) {
+        func postSendMessage(in messanger: DataItem, _ token: String?, _ text: String) {
             guard let url = URL(string: postSendMessage(with: messanger)) else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -121,15 +135,7 @@ extension Network {
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
-                } receiveValue: { result in
-                    switch result {
-                    case ( _, _): break
-//                        print("DATA")
-//                        print(data)
-//                        print("RESPONSE")
-//                        print(response)
-                    }
-                }
+                } receiveValue: { _ in}
                 .store(in: &cancellables)
         }
 }
@@ -138,7 +144,7 @@ extension Network {
 extension Network {
     
     // Возвращает массив чатов, с полной информацией о них, для того, чтобы далее использовать инфу для отправки сообщения
-    func getLicenses(with token: String) -> AnyPublisher<[Datum], Never>  {
+    func getLicenses(with token: String?) -> AnyPublisher<[Datum], Never>  {
         guard let url = URL(string: API.url.rawValue + Chats.licenses.rawValue) else {
             return  Just([Datum]()).eraseToAnyPublisher()
         }
@@ -156,7 +162,7 @@ extension Network {
     }
     
     // Возвращает массив чатов, по моделе: AllItemsModel
-    func getAllItems(with token: String) -> AnyPublisher<[DataItem], Never> {
+    func getAllItems(with token: String?) -> AnyPublisher<[DataItem], Never> {
         guard let url = URL(string: API.url.rawValue + Chats.allChats.rawValue) else {
             return  Just([DataItem]()).eraseToAnyPublisher()
         }
@@ -172,7 +178,8 @@ extension Network {
             .eraseToAnyPublisher()
     }
     
-    func getMessages(with token: String, and messanger: DataItem) -> AnyPublisher<[CurrentMessages], Never>  {
+    // Возвращает массив сообщений
+    func getMessages(with token: String?, and messanger: DataItem) -> AnyPublisher<[CurrentMessages], Never>  {
         guard let url = URL(string: postSendMessage(with: messanger)) else {
             return  Just([CurrentMessages]()).eraseToAnyPublisher()
         }
@@ -206,25 +213,39 @@ extension Network {
         }
     }
     
-    // Функция для загрузки информации о профиле 
-    func getInfoAboutAccount(with token: String) -> AnyPublisher<PersonalInfo, Never> {
-        guard let url = URL(string: getProfile()) else {
-            return  Just(PersonalInfo(id: 1, fullName: "", email: "", avatar: "", status: "", workday: "")).eraseToAnyPublisher()
-        }
+    // Функция для загрузки информации о профиле в UserDefault
+    func getInfoAboutAccount(with token: String?) {
+        guard let url = URL(string: getProfile()) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(token, forHTTPHeaderField: "Authorization")
         request.setValue("ru", forHTTPHeaderField: "Lang")
-        return fetch(request)
-            .map { (response: Profile) -> PersonalInfo in
-                return response.data
+        
+        URLSession.shared
+            .dataTaskPublisher(for: request)
+            .receive(on: DispatchQueue.global())
+            .print()
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("Fin")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            } receiveValue: { result in
+                switch result {
+                case (let data, _):
+                    guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else { return }
+                    guard let data = json["data"] as? [String: Any] else { return }
+                    guard let name = data["fullName"] as? String else { return }
+                    guard let email = data["email"] as? String else { return }
+                    guard let avatar = data["avatar"] as? String else { return }
+                    
+                    self.getProfileInUserD(name: name, email: email, avatar: avatar)
+                }
             }
-            .replaceError(with: PersonalInfo(id: 1, fullName: "", email: "", avatar: "", status: "", workday: ""))
-            .eraseToAnyPublisher()
+            .store(in: &cancellables)
     }
-    
-    
-    
 }
 
 // MARK: func for me
@@ -236,7 +257,6 @@ extension Network {
             .map { $0.data}
             .decode(type: T.self, decoder: JSONDecoder())
             .receive(on: RunLoop.main)
-            .print()
             .eraseToAnyPublisher()
     }
 }
@@ -265,5 +285,11 @@ extension Network {
     
     private func getProfile() -> String {
         API.url.rawValue + ProfileInfoURL.me.rawValue
+    }
+    
+    private func getProfileInUserD(name: String, email: String, avatar: String) {
+        user.saveFullName(name)
+        user.saveEmail(email)
+        user.saveAvatar(avatar)
     }
 }
