@@ -6,19 +6,19 @@
 //
 
 import Foundation
-import Combine
 import Models
+import Combine
 import StorageModule
 
-enum NetworkError: Error {
+public enum NetworkError: Error {
     case invalidURL
     case noData
     case decodingError
 }
 
-protocol NetworkProtocol {
+public protocol NetworkProtocol {
     
-    func postNewToken(with personalData: PersonalData.Type, _ completion: @escaping(Result<String, NetworkError>) -> Void)
+    func postNewToken(_ completion: @escaping(Result<String, NetworkError>) -> Void)
     func postRefreshToken(_ completion: @escaping(Result<String, NetworkError>) -> Void)
     func postSendMessage(in messanger: DataItem, _ token: String?, _ text: String)
     func getLicenses(with token: String?) -> AnyPublisher<[Datum], Never>
@@ -28,17 +28,23 @@ protocol NetworkProtocol {
     
 }
 
-final class Network: NetworkProtocol {
+public class Network: NetworkProtocol {
+    
     private(set) public var user = AuthManager(storageManager: StorageManager())
     private(set) public var cancellables = Set<AnyCancellable>()
-//    private var user = UserDefaults.standard
+    
+    public init(user: AuthManager = AuthManager(storageManager: StorageManager()), cancellables: Set<AnyCancellable> = Set<AnyCancellable>()) {
+        self.user = user
+        self.cancellables = cancellables
+    }
+
 }
 
 // MARK: POST - requests
 extension Network {
     
     // Генерирует токен и в completion его возвращает (лучше реализовать метод в начале запуска приложения , лушче всего в init() классе)
-    public func postNewToken(with personalData: PersonalData.Type, _ completion: @escaping(Result<String, NetworkError>) -> Void) {
+    public func postNewToken(_ completion: @escaping(Result<String, NetworkError>) -> Void) {
         guard let url = URL(string: postToken()) else {
             return completion(.failure(.invalidURL))
             
@@ -49,14 +55,14 @@ extension Network {
         request.setValue("ru", forHTTPHeaderField: "Lang")
         
         let json = [
-            "email": personalData.email.rawValue,
-            "password": personalData.password.rawValue,
-            "appId": personalData.appid.rawValue
+            "email": PersonalData.email.rawValue,
+            "password": PersonalData.password.rawValue,
+            "appId": PersonalData.appid.rawValue
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: json, options: [])
         URLSession.shared
             .dataTaskPublisher(for: request)
-            .receive(on: DispatchQueue.global())
+            .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -89,7 +95,7 @@ extension Network {
         
         URLSession.shared
             .dataTaskPublisher(for: request)
-            .receive(on: DispatchQueue.global())
+            .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -128,7 +134,7 @@ extension Network {
     
             URLSession.shared
                 .dataTaskPublisher(for: request)
-                .receive(on: DispatchQueue.global())
+                .receive(on: DispatchQueue.main)
                 .print()
                 .sink { completion in
                     switch completion {
@@ -225,7 +231,7 @@ extension Network {
         
         URLSession.shared
             .dataTaskPublisher(for: request)
-            .receive(on: DispatchQueue.global())
+            .receive(on: DispatchQueue.main)
             .print()
             .sink { completion in
                 switch completion {

@@ -10,7 +10,7 @@ import StorageModule
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello world")
+        Text("no token")
     }
 }
 

@@ -13,7 +13,7 @@
 		8CE8A3992C66657B002AB987 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE8A3982C66657B002AB987 /* Preview Assets.xcassets */; };
 		E72AD1C42C6A38F900126379 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = E72AD1C32C6A38F900126379 /* NetworkModule */; };
 		E7A773FA2C6A438100F8BEBE /* StorageModule in Frameworks */ = {isa = PBXBuildFile; productRef = E7A773F92C6A438100F8BEBE /* StorageModule */; };
-		E7A773FC2C6A438600F8BEBE /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = E7A773FB2C6A438600F8BEBE /* Models */; };
+		E7CEBB0D2C6A532A000F9612 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = E7CEBB0C2C6A532A000F9612 /* Models */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7CEBB0D2C6A532A000F9612 /* Models in Frameworks */,
 				E72AD1C42C6A38F900126379 /* NetworkModule in Frameworks */,
-				E7A773FC2C6A438600F8BEBE /* Models in Frameworks */,
 				E7A773FA2C6A438100F8BEBE /* StorageModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,9 +64,6 @@
 			children = (
 				8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */,
 				8CE8A3932C66657A002AB987 /* ContentView.swift */,
-				E70C53B52C66B3D200C6BC5F /* Modelsss */,
-				E70C53AE2C6684A900C6BC5F /* Networkssss */,
-				E72AD1A92C6A2C1700126379 /* StorageManager */,
 				8CE8A3952C66657B002AB987 /* Assets.xcassets */,
 				8CE8A3972C66657B002AB987 /* Preview Content */,
 			);
@@ -79,27 +76,6 @@
 				8CE8A3982C66657B002AB987 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		E70C53AE2C6684A900C6BC5F /* Networkssss */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networkssss;
-			sourceTree = "<group>";
-		};
-		E70C53B52C66B3D200C6BC5F /* Modelsss */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Modelsss;
-			sourceTree = "<group>";
-		};
-		E72AD1A92C6A2C1700126379 /* StorageManager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = StorageManager;
 			sourceTree = "<group>";
 		};
 		E72AD1C02C6A384A00126379 /* Modules */ = {
@@ -138,7 +114,7 @@
 			packageProductDependencies = (
 				E72AD1C32C6A38F900126379 /* NetworkModule */,
 				E7A773F92C6A438100F8BEBE /* StorageModule */,
-				E7A773FB2C6A438600F8BEBE /* Models */,
+				E7CEBB0C2C6A532A000F9612 /* Models */,
 			);
 			productName = FinalProject;
 			productReference = 8CE8A38E2C66657A002AB987 /* FinalProject.app */;
@@ -415,7 +391,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = StorageModule;
 		};
-		E7A773FB2C6A438600F8BEBE /* Models */ = {
+		E7CEBB0C2C6A532A000F9612 /* Models */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Models;
 		};
