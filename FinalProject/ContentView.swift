@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import Router
 
 struct ContentView: View {
+    
+//    @StateObject var authManager = AuthManager
+    
     var body: some View {
-        VStack {
+        RoutingView(AuthRoute.self) {
             VerificationNumberView()
         }
+//        .environmentObject()
     }
 }
 

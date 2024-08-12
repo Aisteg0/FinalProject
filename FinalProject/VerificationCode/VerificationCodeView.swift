@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Router
 
 struct VerificationCodeView: View {
     @State var contact = VerificationModel()
-    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var router: Router<AuthRoute>
     
     var body: some View {
         VStack {

@@ -34,9 +34,6 @@ struct VerificationEnterNumberView: View {
                     }
                 }
         }
-        .onAppear {
-            phoneNumber = contact.phoneNumber
-        }
     }
     
     func formatPhoneNumber(_ number: String) -> String {
