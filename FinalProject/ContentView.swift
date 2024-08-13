@@ -7,16 +7,24 @@
 
 import SwiftUI
 import Router
+import StorageModule
 
 struct ContentView: View {
     
-//    @StateObject var authManager = AuthManager
+    @StateObject var authManager = AuthManager(storageManager: StorageManager())
     
     var body: some View {
-        RoutingView(AuthRoute.self) {
-            VerificationNumberView()
+        if authManager.isUserAuthorized {
+            RoutingView(MainRoute.self) {
+                ChatsView() // replace
+            }
+//            .environmentObject(authManager)
+        } else {
+            RoutingView(AuthRoute.self) {
+                VerificationNumberView()
+            }
+            .environmentObject(authManager)
         }
-//        .environmentObject()
     }
 }
 

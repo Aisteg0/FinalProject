@@ -7,43 +7,69 @@
 
 import SwiftUI
 import Router
+import UISystem
+import StorageModule
 
 struct VerificationCodeView: View {
     @State var contact = VerificationModel()
     @EnvironmentObject var router: Router<AuthRoute>
+    @EnvironmentObject var authManager: AuthManager
+    @EnvironmentObject var viewModel: ChatViewModel
+    var phoneNumber: String
     
     var body: some View {
-        VStack {
-            Text(NSLocalizedString("enterCode", comment: ""))
-                .font(.system(size: 24))
-                .bold()
-//                .foregroundStyle(.mainTextWB)
-            Text(NSLocalizedString("sentCode", comment: ""))
-                .padding(.top, 8)
-                .font(.system(size: 14))
-//                .foregroundStyle(.mainTextWB)
-            Text("+7 999 999-99-99")
-                .padding(.top, 2)
-                .font(.system(size: 14))
-//                .foregroundStyle(.mainTextWB)
-            VerificationPromptView(contact: $contact.code, numberOfCircles: 4)
-                .padding(.top, 49)
-            CodeView(contact: $contact)
-            Button {
-                
-            } label: {
-                Text(NSLocalizedString("requestCodeAgain", comment: ""))
-                    .font(.system(size: 16))
-//                    .foregroundStyle(.pinkTextWB)
-                    .padding()
+        ZStack {
+            Color.accent4
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                VerificationTextView(mainText: "enterCode", additionalText: "sentCode", textColor: .colorForText)
+                Text(Constants.countryCode + phoneNumber)
+                    .padding(.top, Constants.padding1)
+                    .font(.system(size: Constants.systemSize1))
+                    .foregroundStyle(.colorForText)
+                VerificationPromptView(contact: $contact.code, numberOfCircles: Constants.numberOfCircles)
+                    .padding(.top, Constants.padding2)
+                CodeView(contact: $contact, checkCode: checkCode)
+                Button {
+                    viewModel.getRandomCode()
+                } label: {
+                    Text(NSLocalizedString("requestCodeAgain", comment: ""))
+                        .font(.system(size: Constants.systemSize2))
+                        .foregroundStyle(.accent5)
+                        .padding()
+                }
+                .padding(.top, Constants.padding3)
+                .padding(Constants.padding4)
             }
-            .padding(.top, 69)
-            .padding(25)
+            NotificationView()
         }
     }
+    
+    private func checkCode() {
+        if contact.code == viewModel.password {
+            router.path.removeLast(router.path.count)
+            authManager.authorizeUser()
+            } else {
+//                print("Код неверный - \(code)\nверный - \(String(describing: authorizationData.smsCode))")
+            }
+        }
+    
+}
+
+private enum Constants {
+    static let countryCode: String = "+7 "
+    static let padding1: CGFloat = 2.0
+    static let padding2: CGFloat = 49.0
+    static let padding3: CGFloat = 69.0
+    static let padding4: CGFloat = 25.0
+    static let systemSize1: CGFloat = 14.0
+    static let systemSize2: CGFloat = 16.0
+    static let numberOfCircles: Int = 4
 }
 
 #Preview {
-    VerificationCodeView()
+    VerificationCodeView(contact: VerificationModel(), phoneNumber: "800 555 35 35")
+        .environmentObject(ChatViewModel())
 }
 

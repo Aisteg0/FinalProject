@@ -10,8 +10,7 @@ import Router
 
 enum AuthRoute: Routable {
     case verificationNumber
-    case verificationCode
-    
+    case verificationCode(phoneNumber: String)
     var navigationType: NavigationType {
         return .push
     }
@@ -21,8 +20,8 @@ enum AuthRoute: Routable {
         switch self {
         case .verificationNumber:
             VerificationNumberView() 
-        case .verificationCode:
-            VerificationCodeView()
+        case .verificationCode(let phoneNumber):
+            VerificationCodeView(phoneNumber: phoneNumber)
         }
     }
 }

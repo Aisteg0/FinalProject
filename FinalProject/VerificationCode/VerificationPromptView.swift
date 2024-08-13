@@ -12,7 +12,7 @@ struct VerificationPromptView: View {
     var numberOfCircles: Int
     
     var body: some View {
-        HStack(spacing: 44) {
+        HStack(spacing: Constants.spacing) {
             ForEach(0..<numberOfCircles, id: \.self) { id in
                 if id < contact.count {
                     let index = contact.index(contact.startIndex, offsetBy: id)
@@ -32,15 +32,22 @@ struct CirclePromtView: View {
         ZStack {
             if digit == "" {
                 Image(systemName: "circle.fill")
-                    .font(.system(size: 32))
-                    .foregroundStyle(.gray)
+                    .font(.system(size: Constants.systemSize))
+                    .foregroundStyle(.colorForPrompt)
             }
             Text(digit)
-                .foregroundStyle(.black)
-                .font(.system(size: 32))
+                .foregroundStyle(.colorForText)
+                .font(.system(size: Constants.systemSize))
         }
-        .frame(width: 44, height: 44)
+        .frame(width: Constants.width, height: Constants.height)
     }
+}
+
+private enum Constants {
+    static let spacing: CGFloat = 44.0
+    static let systemSize: CGFloat = 32.0
+    static let width: CGFloat = 44.0
+    static let height: CGFloat = 44.0
 }
 
 #Preview {

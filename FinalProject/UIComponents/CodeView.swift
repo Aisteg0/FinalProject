@@ -12,7 +12,7 @@ import Router
 struct CodeView: View {
     @Binding var contact: VerificationModel
     @FocusState private var isTextFieldFocused: Bool
-    @EnvironmentObject var router: Router<AuthRoute>
+    let checkCode: () -> Void
     
     var body: some View {
         ZStack {
@@ -29,7 +29,7 @@ struct CodeView: View {
                         contact.code = String(newValue.prefix(4))
                     }
                     if newValue.count == 4 {
-                        // проверка на корректный код
+                        checkCode()
                     }
                 }
         }
@@ -37,5 +37,5 @@ struct CodeView: View {
 }
 
 #Preview {
-    CodeView(contact: .constant(VerificationModel()))
+    CodeView(contact: .constant(VerificationModel()), checkCode: {})
 }
