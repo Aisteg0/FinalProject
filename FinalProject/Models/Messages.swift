@@ -1,12 +1,9 @@
 //
-//  MessagesInCurrentChatModel.swift
+//  Messages.swift
 //  FinalProject
 //
-//  Created by Vladimir on 11.08.2024.
+//  Created by Vladimir on 13.08.2024.
 //
-
-import Foundation
-import ExyteChat
 
 public struct MessagesInChat: Codable {
     public let success: Bool

@@ -1,8 +1,8 @@
 //
-//  AllItemsModel.swift
+//  Items.swift
 //  FinalProject
 //
-//  Created by Vladimir on 09.08.2024.
+//  Created by Vladimir on 13.08.2024.
 //
 
 import Foundation
@@ -11,8 +11,6 @@ public struct ItemsModel: Codable {
    public let success: Bool
    public let data: DataClass
 }
-
-
 
 public struct DataClass: Codable {
     public let items: [DataItem]
@@ -82,3 +80,4 @@ public struct CategoryClass: Codable {
     public let name: String
     public let sort: Int
 }
+

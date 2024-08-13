@@ -17,13 +17,15 @@
 		E7001A432C6BF066004BB03D /* Sequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7001A422C6BF066004BB03D /* Sequence+.swift */; };
 		E7001A472C6BFAEF004BB03D /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7001A462C6BFAEF004BB03D /* Date+.swift */; };
 		E7001A4C2C6C0F95004BB03D /* WebSocketStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7001A4B2C6C0F95004BB03D /* WebSocketStream.swift */; };
-		E72AD1C42C6A38F900126379 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = E72AD1C32C6A38F900126379 /* NetworkModule */; };
+		E74F52FF2C6C215C00899E76 /* ModelsModule in Frameworks */ = {isa = PBXBuildFile; productRef = E74F52FE2C6C215C00899E76 /* ModelsModule */; };
+		E74F53012C6C215C00899E76 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = E74F53002C6C215C00899E76 /* NetworkModule */; };
+		E74F53032C6C215C00899E76 /* StorageManager in Frameworks */ = {isa = PBXBuildFile; productRef = E74F53022C6C215C00899E76 /* StorageManager */; };
+		E74F53142C6C239000899E76 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F53102C6C239000899E76 /* ChatViewModel.swift */; };
+		E74F53152C6C239000899E76 /* WebSocketStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F53112C6C239000899E76 /* WebSocketStream.swift */; };
+		E74F53162C6C239000899E76 /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F53122C6C239000899E76 /* ChatScreen.swift */; };
 		E75177AB2C6B6440002E61BF /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75177AA2C6B6440002E61BF /* ChatViewModel.swift */; };
 		E75177AD2C6B6449002E61BF /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75177AC2C6B6449002E61BF /* ChatScreen.swift */; };
-		E75177B12C6B6475002E61BF /* ExyteChat in Frameworks */ = {isa = PBXBuildFile; productRef = E75177B02C6B6475002E61BF /* ExyteChat */; };
 		E75177B42C6B650F002E61BF /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = E75177B32C6B650F002E61BF /* KeychainAccess */; };
-		E7A773FA2C6A438100F8BEBE /* StorageModule in Frameworks */ = {isa = PBXBuildFile; productRef = E7A773F92C6A438100F8BEBE /* StorageModule */; };
-		E7CEBB0D2C6A532A000F9612 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = E7CEBB0C2C6A532A000F9612 /* Models */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,10 +39,12 @@
 		E7001A422C6BF066004BB03D /* Sequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+.swift"; sourceTree = "<group>"; };
 		E7001A462C6BFAEF004BB03D /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		E7001A4B2C6C0F95004BB03D /* WebSocketStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketStream.swift; sourceTree = "<group>"; };
-		E72AD1C12C6A38C900126379 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkModule; sourceTree = "<group>"; };
-		E72AD1C52C6A3A1A00126379 /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Models; sourceTree = "<group>"; };
-		E72AD1CA2C6A3B6700126379 /* StorageModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StorageModule; sourceTree = "<group>"; };
-		E75177A92C6B5374002E61BF /* Chat */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Chat; path = ../ChatTryImport/Chat; sourceTree = "<group>"; };
+		E74F52F32C6C1F5200899E76 /* ModelsModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ModelsModule; path = ../../ModelsModule; sourceTree = "<group>"; };
+		E74F52F82C6C202400899E76 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkModule; path = ../../NetworkModule; sourceTree = "<group>"; };
+		E74F52FD2C6C211700899E76 /* StorageManager */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = StorageManager; path = ../../StorageManager; sourceTree = "<group>"; };
+		E74F53102C6C239000899E76 /* ChatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		E74F53112C6C239000899E76 /* WebSocketStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketStream.swift; sourceTree = "<group>"; };
+		E74F53122C6C239000899E76 /* ChatScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		E75177AA2C6B6440002E61BF /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		E75177AC2C6B6449002E61BF /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,11 +55,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7001A412C6BF04C004BB03D /* Algorithms in Frameworks */,
-				E75177B12C6B6475002E61BF /* ExyteChat in Frameworks */,
-				E7CEBB0D2C6A532A000F9612 /* Models in Frameworks */,
-				E72AD1C42C6A38F900126379 /* NetworkModule in Frameworks */,
-				E7A773FA2C6A438100F8BEBE /* StorageModule in Frameworks */,
+				E74F53032C6C215C00899E76 /* StorageManager in Frameworks */,
+				E74F53012C6C215C00899E76 /* NetworkModule in Frameworks */,
 				E75177B42C6B650F002E61BF /* KeychainAccess in Frameworks */,
+				E74F52FF2C6C215C00899E76 /* ModelsModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +68,6 @@
 		8CE8A3852C666579002AB987 = {
 			isa = PBXGroup;
 			children = (
-				E75177A82C6B5374002E61BF /* Packages */,
 				E72AD1C02C6A384A00126379 /* Modules */,
 				8CE8A3902C66657A002AB987 /* FinalProject */,
 				8CE8A38F2C66657A002AB987 /* Products */,
@@ -86,6 +88,7 @@
 			children = (
 				8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */,
 				8CE8A3932C66657A002AB987 /* ContentView.swift */,
+				E74F52ED2C6C1EB300899E76 /* Models */,
 				E75177AE2C6B644C002E61BF /* Chat */,
 				E79B3E4C2C6B8E10008BA603 /* Extentions */,
 				8CE8A3952C66657B002AB987 /* Assets.xcassets */,
@@ -114,9 +117,9 @@
 		E72AD1C02C6A384A00126379 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				E72AD1CA2C6A3B6700126379 /* StorageModule */,
-				E72AD1C52C6A3A1A00126379 /* Models */,
-				E72AD1C12C6A38C900126379 /* NetworkModule */,
+				E74F52FD2C6C211700899E76 /* StorageManager */,
+				E74F52F82C6C202400899E76 /* NetworkModule */,
+				E74F52F32C6C1F5200899E76 /* ModelsModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -128,12 +131,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E75177A82C6B5374002E61BF /* Packages */ = {
+		E74F52ED2C6C1EB300899E76 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E75177A92C6B5374002E61BF /* Chat */,
+				E74F530E2C6C239000899E76 /* Chat */,
 			);
-			name = Packages;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E74F530E2C6C239000899E76 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				E74F530F2C6C239000899E76 /* ViewModel+WebSocet */,
+				E74F53122C6C239000899E76 /* ChatScreen.swift */,
+				E74F53132C6C239000899E76 /* Views */,
+			);
+			name = Chat;
+			path = FinalProject/Chat;
+			sourceTree = SOURCE_ROOT;
+		};
+		E74F530F2C6C239000899E76 /* ViewModel+WebSocet */ = {
+			isa = PBXGroup;
+			children = (
+				E74F53102C6C239000899E76 /* ChatViewModel.swift */,
+				E74F53112C6C239000899E76 /* WebSocketStream.swift */,
+			);
+			path = "ViewModel+WebSocet";
+			sourceTree = "<group>";
+		};
+		E74F53132C6C239000899E76 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E75177AE2C6B644C002E61BF /* Chat */ = {
@@ -181,12 +211,11 @@
 			);
 			name = FinalProject;
 			packageProductDependencies = (
-				E72AD1C32C6A38F900126379 /* NetworkModule */,
-				E7A773F92C6A438100F8BEBE /* StorageModule */,
-				E7CEBB0C2C6A532A000F9612 /* Models */,
-				E75177B02C6B6475002E61BF /* ExyteChat */,
 				E75177B32C6B650F002E61BF /* KeychainAccess */,
 				E7001A402C6BF04C004BB03D /* Algorithms */,
+				E74F52FE2C6C215C00899E76 /* ModelsModule */,
+				E74F53002C6C215C00899E76 /* NetworkModule */,
+				E74F53022C6C215C00899E76 /* StorageManager */,
 			);
 			productName = FinalProject;
 			productReference = 8CE8A38E2C66657A002AB987 /* FinalProject.app */;
@@ -253,7 +282,10 @@
 				E75177AB2C6B6440002E61BF /* ChatViewModel.swift in Sources */,
 				E7001A432C6BF066004BB03D /* Sequence+.swift in Sources */,
 				8CE8A3922C66657A002AB987 /* FinalProjectApp.swift in Sources */,
+				E74F53162C6C239000899E76 /* ChatScreen.swift in Sources */,
 				E7001A3C2C6BAD45004BB03D /* DraftMessage+.swift in Sources */,
+				E74F53142C6C239000899E76 /* ChatViewModel.swift in Sources */,
+				E74F53152C6C239000899E76 /* WebSocketStream.swift in Sources */,
 				E7001A472C6BFAEF004BB03D /* Date+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,26 +522,22 @@
 			package = E7001A3F2C6BF04C004BB03D /* XCRemoteSwiftPackageReference "swift-algorithms" */;
 			productName = Algorithms;
 		};
-		E72AD1C32C6A38F900126379 /* NetworkModule */ = {
+		E74F52FE2C6C215C00899E76 /* ModelsModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ModelsModule;
+		};
+		E74F53002C6C215C00899E76 /* NetworkModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkModule;
 		};
-		E75177B02C6B6475002E61BF /* ExyteChat */ = {
+		E74F53022C6C215C00899E76 /* StorageManager */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ExyteChat;
+			productName = StorageManager;
 		};
 		E75177B32C6B650F002E61BF /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E75177B22C6B650F002E61BF /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
-		};
-		E7A773F92C6A438100F8BEBE /* StorageModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = StorageModule;
-		};
-		E7CEBB0C2C6A532A000F9612 /* Models */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Models;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

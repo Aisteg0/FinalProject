@@ -1,8 +1,8 @@
 //
-//  ApiData.swift
+//  APIData.swift
 //  FinalProject
 //
-//  Created by Vladimir on 09.08.2024.
+//  Created by Vladimir on 13.08.2024.
 //
 
 import Foundation
