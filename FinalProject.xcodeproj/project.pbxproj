@@ -23,6 +23,9 @@
 		656BDA612C691BFA00FDAC90 /* UISystem in Frameworks */ = {isa = PBXBuildFile; productRef = 656BDA602C691BFA00FDAC90 /* UISystem */; };
 		656BDA642C691C3600FDAC90 /* Router in Frameworks */ = {isa = PBXBuildFile; productRef = 656BDA632C691C3600FDAC90 /* Router */; };
 		65C7839B2C6B82BA00418290 /* ExyteChat in Frameworks */ = {isa = PBXBuildFile; productRef = 65C7839A2C6B82BA00418290 /* ExyteChat */; };
+		65D653A22C6C186A007A191E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65D653A02C6C186A007A191E /* Localizable.strings */; };
+		65D653A42C6C18AF007A191E /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D653A32C6C18AE007A191E /* Keys.swift */; };
+		65D653A62C6C1940007A191E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D653A52C6C1940007A191E /* StringExtension.swift */; };
 		65D883652C6A43B40059ED3C /* MenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D883642C6A43B40059ED3C /* MenuRow.swift */; };
 		65D8836E2C6A4A310059ED3C /* MessagesInCurrentChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D883692C6A4A300059ED3C /* MessagesInCurrentChatModel.swift */; };
 		65D8836F2C6A4A310059ED3C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8836A2C6A4A300059ED3C /* Network.swift */; };
@@ -54,6 +57,9 @@
 		656BDA4E2C69156900FDAC90 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		656BDA5D2C691BB400FDAC90 /* UISystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UISystem; sourceTree = "<group>"; };
 		656BDA622C691C3000FDAC90 /* Router */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Router; sourceTree = "<group>"; };
+		65D653A12C6C186A007A191E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		65D653A32C6C18AE007A191E /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		65D653A52C6C1940007A191E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		65D883642C6A43B40059ED3C /* MenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRow.swift; sourceTree = "<group>"; };
 		65D883692C6A4A300059ED3C /* MessagesInCurrentChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesInCurrentChatModel.swift; sourceTree = "<group>"; };
 		65D8836A2C6A4A300059ED3C /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -92,6 +98,8 @@
 				656BDA352C69148A00FDAC90 /* Profile */,
 				656BDA362C69149700FDAC90 /* SettingsView.swift */,
 				65D883642C6A43B40059ED3C /* MenuRow.swift */,
+				65D653A32C6C18AE007A191E /* Keys.swift */,
+				65D653A02C6C186A007A191E /* Localizable.strings */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -110,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				656BDA4E2C69156900FDAC90 /* ViewExtension.swift */,
+				65D653A52C6C1940007A191E /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CE8A3992C66657B002AB987 /* Preview Assets.xcassets in Resources */,
+				65D653A22C6C186A007A191E /* Localizable.strings in Resources */,
 				8CE8A3962C66657B002AB987 /* Assets.xcassets in Resources */,
 				656BDA5F2C691BB400FDAC90 /* UISystem in Resources */,
 			);
@@ -327,10 +337,23 @@
 				8CE8A3922C66657A002AB987 /* FinalProjectApp.swift in Sources */,
 				656BDA4B2C69153700FDAC90 /* AuthRouter.swift in Sources */,
 				656BDA462C69152000FDAC90 /* AuthManager.swift in Sources */,
+				65D653A62C6C1940007A191E /* StringExtension.swift in Sources */,
+				65D653A42C6C18AF007A191E /* Keys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		65D653A02C6C186A007A191E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65D653A12C6C186A007A191E /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8CE8A39A2C66657B002AB987 /* Debug */ = {

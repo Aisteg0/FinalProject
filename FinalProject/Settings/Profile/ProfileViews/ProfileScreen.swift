@@ -29,7 +29,7 @@ struct ProfileScreen: View {
                     } label: {
                         HStack {
                             Image(systemName: "chevron.left")
-                            Text("Контакты")
+                            Text(Keys.Profile.profile)
                                 .foregroundColor(.black)
                         }
                         .bold()

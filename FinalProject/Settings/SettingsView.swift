@@ -15,10 +15,10 @@ struct SettingsView: View {
     @State private var profile: ProfileInfo = ProfileInfo(fullName: "", email: "", avatar: "")
     
     let menuItems: [MenuItem] = [
-        MenuItem(icon: "sun.max", title: "Тема"),
-        MenuItem(icon: "bell", title: "Уведомления"),
-        MenuItem(icon: "shield", title: "Безопасность"),
-        MenuItem(icon: "envelope", title: "Пригласи друга")
+        MenuItem(icon: "sun.max", title: Keys.Settings.theme),
+        MenuItem(icon: "bell", title: Keys.Settings.notifications),
+        MenuItem(icon: "shield", title: Keys.Settings.safety),
+        MenuItem(icon: "envelope", title: Keys.Settings.inviteFriend)
     ]
     
     var body: some View {
@@ -30,10 +30,10 @@ struct SettingsView: View {
             ForEach(menuItems) { item in
                 MenuRow(item: item) {
                     switch item.title {
-                    case "Тема": router.routeTo(.theme)
-                    case "Уведомления": router.routeTo(.notifications)
-                    case "Безопасность": router.routeTo(.safety)
-                    case "Пригласи друга": router.routeTo(.inviteFriend)
+                    case Keys.Settings.theme: router.routeTo(.theme)
+                    case Keys.Settings.notifications: router.routeTo(.notifications)
+                    case Keys.Settings.safety: router.routeTo(.safety)
+                    case Keys.Settings.inviteFriend: router.routeTo(.inviteFriend)
                     default: break
                     }
                 }
@@ -50,7 +50,7 @@ struct SettingsView: View {
                 } label: {
                     HStack {
                         Image(systemName: "chevron.left")
-                        Text("Настройки")
+                        Text(Keys.Settings.settings)
                             .foregroundStyle(.black)
                     }
                     .bold()
