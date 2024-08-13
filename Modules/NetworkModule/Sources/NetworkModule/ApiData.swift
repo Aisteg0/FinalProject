@@ -26,6 +26,7 @@ internal enum MessageBuilder: String {
     case messenger = "/messengers/"
     case chatId = "/chats/"
     case messageAndText = "/messages/text"
+    case messages = "/messages"
 }
 
 internal enum ProfileInfoURL: String {

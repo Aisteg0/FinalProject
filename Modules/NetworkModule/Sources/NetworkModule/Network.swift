@@ -135,7 +135,6 @@ extension Network {
             URLSession.shared
                 .dataTaskPublisher(for: request)
                 .receive(on: DispatchQueue.main)
-                .print()
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -195,11 +194,12 @@ extension Network {
             request.httpMethod = "Get"
             request.setValue(token, forHTTPHeaderField: "Authorization")
             request.setValue("ru", forHTTPHeaderField: "Lang")
-        
+        print(request)
         return fetch(request)
             .map { (response: MessagesInChat) -> [CurrentMessages] in
                 return response.data.items
             }
+            .print()
             .replaceError(with: [CurrentMessages]())
             .eraseToAnyPublisher()
     }
@@ -288,7 +288,7 @@ extension Network {
         + item.messengerType
         + MessageBuilder.chatId.rawValue
         + item.id
-        + MessageBuilder.messageAndText.rawValue
+        + MessageBuilder.messages.rawValue
     }
     
     fileprivate func getProfile() -> String {

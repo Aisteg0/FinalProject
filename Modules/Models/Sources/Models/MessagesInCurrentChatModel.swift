@@ -23,7 +23,7 @@ public struct CurrentMessages: Codable {
    public let fromAPI, fromMe: Bool
    public let side: String
    public let time: Int
-   public let status: String
+   public let status: String?
    public let error: Errors?
    public let type: String
    public let subtype: String?
@@ -54,7 +54,7 @@ public struct Errors: Codable {
 public struct FromUser: Codable {
     public let id: String
     public let username: String?
-    public let name, phone: String
+    public let name, phone: String?
     public let email: String?
 }
 

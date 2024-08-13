@@ -6,16 +6,36 @@
 //
 
 import SwiftUI
-import StorageModule
+import KeychainAccess
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: ChatViewModel
     var body: some View {
-        Text("no token")
+        NavigationStack {
+            if viewModel.items.isEmpty {
+                Button("GetItems", action: viewModel.getAllItems)
+            } else {
+                List(viewModel.items, id: \.name) { item in
+                    NavigationLink {
+                        ChatScreen(item: viewModel.messages)
+                    } label: {
+                        Button {
+                            viewModel.getMessages(from: item)
+                        } label: {
+                            Text(item.name)
+                        }
+
+                    }
+
+                }
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ChatViewModel())
     }
 }
