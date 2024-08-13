@@ -17,6 +17,7 @@ final class ChatViewModel: ObservableObject {
     @Published var network = Network()
     @Published var items = [DataItem]()
     @Published var messages = [CurrentMessages]()
+    @Published var uploadMessages = [CurrentMessages]()
     @Published var chatMessages = [ExyteChat.Message]()
     
     let keychain = Keychain(service: "openApi")
@@ -37,7 +38,7 @@ final class ChatViewModel: ObservableObject {
     }
     
     func onStart() {
-        var converteMessages = messages.sorted(by: {$0.time < $1.time})
+        let converteMessages =  messages.sorted(by: {$0.time < $1.time})
         chatMessages = converteMessages.map { $0.toMessageFromMe() }
     }
 
@@ -46,18 +47,20 @@ final class ChatViewModel: ObservableObject {
             .assign(to: \.messages, on: self)
             .store(in: &self.cancellables)
     }
+    
+    func getUploadMessage(from item: DataItem) {
+        network.getMessages(with: keychain["token"], and: item)
+            .assign(to: \.uploadMessages, on: self)
+            .store(in: &self.cancellables)
+        
+//        if uploadMessages.uniqued(on: messages) {
+//
+//        }
+    }
 }
 
 extension ChatViewModel {
     func send(draftMessage: DraftMessage, and item: DataItem) {
-           if draftMessage.id != nil {
-               guard let index = chatState.value.firstIndex(where: { $0.id == draftMessage.id }) else {
-                   // TODO: Create error
-                   return
-               }
-               chatState.value.remove(at: index)
-           }
-
            Task {
                let message = await draftMessage.sendDraftMessage(user: draftMessage, and: item)
                DispatchQueue.main.async { [weak self] in

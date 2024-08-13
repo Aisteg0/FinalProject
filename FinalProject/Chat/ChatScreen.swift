@@ -27,9 +27,14 @@ struct ChatScreen: View {
 
             }
         })
+        
+        .task {
+            Task {
+                viewModel.onStart()
+            }
+        }
         .onAppear {
             viewModel.getMessages(from: item)
-            viewModel.onStart()
         }
     }
 }

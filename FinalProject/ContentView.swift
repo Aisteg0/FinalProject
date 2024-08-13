@@ -23,7 +23,6 @@ struct ContentView: View {
                     })
                     .onAppear {
                         viewModel.getMessages(from: item)
-                        viewModel.onStart()
                     }
                 }
             }

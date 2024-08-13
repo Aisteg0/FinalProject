@@ -16,6 +16,7 @@
 		E7001A412C6BF04C004BB03D /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = E7001A402C6BF04C004BB03D /* Algorithms */; };
 		E7001A432C6BF066004BB03D /* Sequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7001A422C6BF066004BB03D /* Sequence+.swift */; };
 		E7001A472C6BFAEF004BB03D /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7001A462C6BFAEF004BB03D /* Date+.swift */; };
+		E7001A4C2C6C0F95004BB03D /* WebSocketStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7001A4B2C6C0F95004BB03D /* WebSocketStream.swift */; };
 		E72AD1C42C6A38F900126379 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = E72AD1C32C6A38F900126379 /* NetworkModule */; };
 		E75177AB2C6B6440002E61BF /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75177AA2C6B6440002E61BF /* ChatViewModel.swift */; };
 		E75177AD2C6B6449002E61BF /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75177AC2C6B6449002E61BF /* ChatScreen.swift */; };
@@ -35,6 +36,7 @@
 		E7001A3D2C6BADA0004BB03D /* MessageStatus+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageStatus+.swift"; sourceTree = "<group>"; };
 		E7001A422C6BF066004BB03D /* Sequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+.swift"; sourceTree = "<group>"; };
 		E7001A462C6BFAEF004BB03D /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		E7001A4B2C6C0F95004BB03D /* WebSocketStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketStream.swift; sourceTree = "<group>"; };
 		E72AD1C12C6A38C900126379 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkModule; sourceTree = "<group>"; };
 		E72AD1C52C6A3A1A00126379 /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Models; sourceTree = "<group>"; };
 		E72AD1CA2C6A3B6700126379 /* StorageModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StorageModule; sourceTree = "<group>"; };
@@ -100,6 +102,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E7001A4A2C6C0F7B004BB03D /* ViewModel+WebSocet */ = {
+			isa = PBXGroup;
+			children = (
+				E75177AA2C6B6440002E61BF /* ChatViewModel.swift */,
+				E7001A4B2C6C0F95004BB03D /* WebSocketStream.swift */,
+			);
+			path = "ViewModel+WebSocet";
+			sourceTree = "<group>";
+		};
 		E72AD1C02C6A384A00126379 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +141,7 @@
 			children = (
 				E75177AC2C6B6449002E61BF /* ChatScreen.swift */,
 				E75177AF2C6B6454002E61BF /* Views */,
-				E75177AA2C6B6440002E61BF /* ChatViewModel.swift */,
+				E7001A4A2C6C0F7B004BB03D /* ViewModel+WebSocet */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -236,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E75177AD2C6B6449002E61BF /* ChatScreen.swift in Sources */,
+				E7001A4C2C6C0F95004BB03D /* WebSocketStream.swift in Sources */,
 				8CE8A3942C66657A002AB987 /* ContentView.swift in Sources */,
 				E7001A3E2C6BADA0004BB03D /* MessageStatus+.swift in Sources */,
 				E75177AB2C6B6440002E61BF /* ChatViewModel.swift in Sources */,

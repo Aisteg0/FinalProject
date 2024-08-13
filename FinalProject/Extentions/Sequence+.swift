@@ -8,7 +8,7 @@
 import Foundation
 import Algorithms
 
-public extension Sequence where Element: Hashable {
+public extension Sequence where [Element]: Hashable {
     func uniqued() -> [Element] {
         var seen = Set<Element>()
         return self.filter { seen.insert($0).inserted }
