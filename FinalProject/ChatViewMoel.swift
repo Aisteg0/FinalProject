@@ -1,15 +1,16 @@
 //
-//  ChatViewModel.swift
+//  ChatViewMoel.swift
 //  FinalProject
 //
 //  Created by Vladimir on 13.08.2024.
 //
 
+
 import Foundation
 import Combine
 import KeychainAccess
 import NetworkModule
-import Models
+import ModelsModule
 import ExyteChat
 import Algorithms
 
