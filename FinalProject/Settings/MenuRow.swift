@@ -27,7 +27,7 @@ struct MenuRow: View {
                     .font(.system(size: 18, weight: .medium))
                 Spacer()
                 Image(systemName: "chevron.right")
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.black) // цвет
             }
             .padding(.vertical, 15)
             .padding(.horizontal)

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		656BDA372C69149700FDAC90 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BDA362C69149700FDAC90 /* SettingsView.swift */; };
 		656BDA392C6914A200FDAC90 /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BDA382C6914A200FDAC90 /* ProfileRow.swift */; };
-		656BDA3B2C6914C200FDAC90 /* Profile(временный.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BDA3A2C6914C200FDAC90 /* Profile(временный.swift */; };
+		656BDA3B2C6914C200FDAC90 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BDA3A2C6914C200FDAC90 /* ProfileModel.swift */; };
 		656BDA3E2C6914D900FDAC90 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BDA3D2C6914D900FDAC90 /* ProfileScreen.swift */; };
 		656BDA402C6914E000FDAC90 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BDA3F2C6914E000FDAC90 /* ProfileView.swift */; };
 		656BDA422C6914E700FDAC90 /* ProfileAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BDA412C6914E700FDAC90 /* ProfileAvatarView.swift */; };
@@ -22,12 +22,17 @@
 		656BDA5F2C691BB400FDAC90 /* UISystem in Resources */ = {isa = PBXBuildFile; fileRef = 656BDA5D2C691BB400FDAC90 /* UISystem */; };
 		656BDA612C691BFA00FDAC90 /* UISystem in Frameworks */ = {isa = PBXBuildFile; productRef = 656BDA602C691BFA00FDAC90 /* UISystem */; };
 		656BDA642C691C3600FDAC90 /* Router in Frameworks */ = {isa = PBXBuildFile; productRef = 656BDA632C691C3600FDAC90 /* Router */; };
+		65C7839B2C6B82BA00418290 /* ExyteChat in Frameworks */ = {isa = PBXBuildFile; productRef = 65C7839A2C6B82BA00418290 /* ExyteChat */; };
 		65D883652C6A43B40059ED3C /* MenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D883642C6A43B40059ED3C /* MenuRow.swift */; };
 		65D8836E2C6A4A310059ED3C /* MessagesInCurrentChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D883692C6A4A300059ED3C /* MessagesInCurrentChatModel.swift */; };
 		65D8836F2C6A4A310059ED3C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8836A2C6A4A300059ED3C /* Network.swift */; };
 		65D883702C6A4A310059ED3C /* ApiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8836B2C6A4A300059ED3C /* ApiData.swift */; };
 		65D883712C6A4A310059ED3C /* LicensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8836C2C6A4A300059ED3C /* LicensesModel.swift */; };
 		65D883722C6A4A310059ED3C /* AllItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8836D2C6A4A300059ED3C /* AllItemsModel.swift */; };
+		65EF6B5D2C6BC08400266A83 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF6B5C2C6BC08400266A83 /* ThemeView.swift */; };
+		65EF6B5F2C6BC0AB00266A83 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF6B5E2C6BC0AB00266A83 /* NotificationsView.swift */; };
+		65EF6B612C6BC0B900266A83 /* Safety.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF6B602C6BC0B900266A83 /* Safety.swift */; };
+		65EF6B632C6BC0CF00266A83 /* InviteFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF6B622C6BC0CF00266A83 /* InviteFriendView.swift */; };
 		8CE8A3922C66657A002AB987 /* FinalProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */; };
 		8CE8A3942C66657A002AB987 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8A3932C66657A002AB987 /* ContentView.swift */; };
 		8CE8A3962C66657B002AB987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE8A3952C66657B002AB987 /* Assets.xcassets */; };
@@ -37,7 +42,7 @@
 /* Begin PBXFileReference section */
 		656BDA362C69149700FDAC90 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		656BDA382C6914A200FDAC90 /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
-		656BDA3A2C6914C200FDAC90 /* Profile(временный.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile(временный.swift"; sourceTree = "<group>"; };
+		656BDA3A2C6914C200FDAC90 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		656BDA3D2C6914D900FDAC90 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		656BDA3F2C6914E000FDAC90 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		656BDA412C6914E700FDAC90 /* ProfileAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvatarView.swift; sourceTree = "<group>"; };
@@ -55,6 +60,10 @@
 		65D8836B2C6A4A300059ED3C /* ApiData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiData.swift; sourceTree = "<group>"; };
 		65D8836C2C6A4A300059ED3C /* LicensesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicensesModel.swift; sourceTree = "<group>"; };
 		65D8836D2C6A4A300059ED3C /* AllItemsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllItemsModel.swift; sourceTree = "<group>"; };
+		65EF6B5C2C6BC08400266A83 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		65EF6B5E2C6BC0AB00266A83 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		65EF6B602C6BC0B900266A83 /* Safety.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safety.swift; sourceTree = "<group>"; };
+		65EF6B622C6BC0CF00266A83 /* InviteFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendView.swift; sourceTree = "<group>"; };
 		8CE8A38E2C66657A002AB987 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE8A3912C66657A002AB987 /* FinalProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectApp.swift; sourceTree = "<group>"; };
 		8CE8A3932C66657A002AB987 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +78,7 @@
 			files = (
 				656BDA612C691BFA00FDAC90 /* UISystem in Frameworks */,
 				656BDA642C691C3600FDAC90 /* Router in Frameworks */,
+				65C7839B2C6B82BA00418290 /* ExyteChat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +88,7 @@
 		656BDA322C69146000FDAC90 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				65EF6B5B2C6BC04600266A83 /* OtherViews */,
 				656BDA352C69148A00FDAC90 /* Profile */,
 				656BDA362C69149700FDAC90 /* SettingsView.swift */,
 				65D883642C6A43B40059ED3C /* MenuRow.swift */,
@@ -106,7 +117,7 @@
 		656BDA352C69148A00FDAC90 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				656BDA3A2C6914C200FDAC90 /* Profile(временный.swift */,
+				656BDA3A2C6914C200FDAC90 /* ProfileModel.swift */,
 				656BDA3C2C6914CF00FDAC90 /* ProfileViews */,
 			);
 			path = Profile;
@@ -159,6 +170,17 @@
 				65D8836A2C6A4A300059ED3C /* Network.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		65EF6B5B2C6BC04600266A83 /* OtherViews */ = {
+			isa = PBXGroup;
+			children = (
+				65EF6B5C2C6BC08400266A83 /* ThemeView.swift */,
+				65EF6B5E2C6BC0AB00266A83 /* NotificationsView.swift */,
+				65EF6B602C6BC0B900266A83 /* Safety.swift */,
+				65EF6B622C6BC0CF00266A83 /* InviteFriendView.swift */,
+			);
+			path = OtherViews;
 			sourceTree = "<group>";
 		};
 		8CE8A3852C666579002AB987 = {
@@ -221,6 +243,7 @@
 			packageProductDependencies = (
 				656BDA602C691BFA00FDAC90 /* UISystem */,
 				656BDA632C691C3600FDAC90 /* Router */,
+				65C7839A2C6B82BA00418290 /* ExyteChat */,
 			);
 			productName = FinalProject;
 			productReference = 8CE8A38E2C66657A002AB987 /* FinalProject.app */;
@@ -250,6 +273,9 @@
 				Base,
 			);
 			mainGroup = 8CE8A3852C666579002AB987;
+			packageReferences = (
+				65C783992C6B82BA00418290 /* XCRemoteSwiftPackageReference "Chat" */,
+			);
 			productRefGroup = 8CE8A38F2C66657A002AB987 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -278,10 +304,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				656BDA392C6914A200FDAC90 /* ProfileRow.swift in Sources */,
+				65EF6B5D2C6BC08400266A83 /* ThemeView.swift in Sources */,
 				656BDA3E2C6914D900FDAC90 /* ProfileScreen.swift in Sources */,
+				65EF6B632C6BC0CF00266A83 /* InviteFriendView.swift in Sources */,
+				65EF6B5F2C6BC0AB00266A83 /* NotificationsView.swift in Sources */,
 				65D883702C6A4A310059ED3C /* ApiData.swift in Sources */,
 				656BDA482C69152600FDAC90 /* StorageManager.swift in Sources */,
-				656BDA3B2C6914C200FDAC90 /* Profile(временный.swift in Sources */,
+				656BDA3B2C6914C200FDAC90 /* ProfileModel.swift in Sources */,
 				656BDA372C69149700FDAC90 /* SettingsView.swift in Sources */,
 				65D883722C6A4A310059ED3C /* AllItemsModel.swift in Sources */,
 				65D883652C6A43B40059ED3C /* MenuRow.swift in Sources */,
@@ -289,6 +318,7 @@
 				656BDA442C6914ED00FDAC90 /* SocialNetworkView.swift in Sources */,
 				65D883712C6A4A310059ED3C /* LicensesModel.swift in Sources */,
 				8CE8A3942C66657A002AB987 /* ContentView.swift in Sources */,
+				65EF6B612C6BC0B900266A83 /* Safety.swift in Sources */,
 				656BDA422C6914E700FDAC90 /* ProfileAvatarView.swift in Sources */,
 				65D8836F2C6A4A310059ED3C /* Network.swift in Sources */,
 				656BDA402C6914E000FDAC90 /* ProfileView.swift in Sources */,
@@ -505,6 +535,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		65C783992C6B82BA00418290 /* XCRemoteSwiftPackageReference "Chat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/Chat";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		656BDA602C691BFA00FDAC90 /* UISystem */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -513,6 +554,11 @@
 		656BDA632C691C3600FDAC90 /* Router */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Router;
+		};
+		65C7839A2C6B82BA00418290 /* ExyteChat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65C783992C6B82BA00418290 /* XCRemoteSwiftPackageReference "Chat" */;
+			productName = ExyteChat;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

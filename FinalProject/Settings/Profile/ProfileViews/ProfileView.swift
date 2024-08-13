@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ProfileView: View {
-    let profile: PersonalInfo
+    var fullName: String
+    var email: String
     var body: some View {
         VStack {
-            Text(profile.fullName)
+            Text(fullName)
                 .font(.system(size: 24))
                 .foregroundColor(.black)
-            Text(profile.email)
+            Text(email)
                 .font(.system(size: 16))
                 .foregroundColor(Color(red: RGBColor(173), green: RGBColor(181), blue: RGBColor(189)))
                 
@@ -29,6 +30,6 @@ extension ProfileView {
     }
 }
 
-#Preview {
-    ProfileView(profile: PersonalInfo(id: 111, fullName: "Test test", email: "123@gmail.com", avatar: "https://flomaster.top/o/uploads/posts/2024-02/1708364185_flomaster-top-p-smeshariki-pingvin-instagram-narisovannie-15.jpg", status: "", workday: ""))
-}
+//#Preview {
+//    ProfileView(profile: PersonalInfo(id: 111, fullName: "Test test", email: "123@gmail.com", avatar: "https://flomaster.top/o/uploads/posts/2024-02/1708364185_flomaster-top-p-smeshariki-pingvin-instagram-narisovannie-15.jpg", status: "", workday: ""))
+//}

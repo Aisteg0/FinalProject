@@ -46,7 +46,7 @@ extension AuthManager: AuthManagerProtocol {
     }
     
     func saveFullName(_ name: String) {
-        storageManager.set(object: name, forKey: .fullName)
+        storageManager.set(name, forKey: .fullName)
     }
     
     func getFullName() -> String? {
@@ -54,7 +54,7 @@ extension AuthManager: AuthManagerProtocol {
     }
     
     func saveEmail(_ email: String) {
-        storageManager.set(object: email, forKey: .email)
+        storageManager.set(email, forKey: .email)
     }
     
     func getEmail() -> String? {

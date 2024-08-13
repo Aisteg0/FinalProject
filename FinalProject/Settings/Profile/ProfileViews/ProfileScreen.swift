@@ -9,15 +9,14 @@ import SwiftUI
 import Router
 
 struct ProfileScreen: View {
-    let profile: PersonalInfo
+    var profile: ProfileInfo
     @EnvironmentObject var router: Router<MainRoute>
-    
     
     var body: some View {
             VStack(spacing: 60) {
                 ProfileAvatarView(avatar: profile.avatar, side: 200)
                     .padding(.top, 80)
-                ProfileView(profile: profile)
+                ProfileView(fullName: profile.fullName, email: profile.email)
                 SocialNetworkView()
                     .padding(.top, -20)
                 Spacer()
@@ -36,16 +35,11 @@ struct ProfileScreen: View {
                         .bold()
                     }
                 }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Image(systemName: "pencil")
-                        .bold()
-                }
             }
         .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-    ProfileScreen(profile: PersonalInfo(id: 111, fullName: "Test test", email: "123@gmail.com", avatar: "https://flomaster.top/o/uploads/posts/2024-02/1708364185_flomaster-top-p-smeshariki-pingvin-instagram-narisovannie-15.jpg", status: "", workday: ""))
+    ProfileScreen(profile: ProfileInfo(fullName: "123", email: "321@mail.ru", avatar: ""))
 }

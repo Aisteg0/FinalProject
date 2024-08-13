@@ -11,8 +11,13 @@ import Router
 enum MainRoute: Routable {
     case chats
     case personalChat
+    
     case settings
-    case profile(profile: PersonalInfo)
+    case profile(profile: ProfileInfo)
+    case theme
+    case notifications
+    case safety
+    case inviteFriend
     
     var navigationType: NavigationType {
         return .push
@@ -29,6 +34,14 @@ enum MainRoute: Routable {
             SettingsView()
         case .profile(let profile):
             ProfileScreen(profile: profile)
+        case .theme:
+            ThemeView()
+        case .notifications:
+            NotificationsView()
+        case .safety:
+            Safety()
+        case .inviteFriend:
+            InviteFriendView()
         }
     }
 }

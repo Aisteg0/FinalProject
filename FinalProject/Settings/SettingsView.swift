@@ -10,14 +10,10 @@ import Router
 
 struct SettingsView: View {
     @EnvironmentObject var router: Router<MainRoute>
+    @EnvironmentObject var authManager: AuthManager
     var network: Network = .init()
-    /*тестоый юзер*/
-    let profile: PersonalInfo = .init(id: 111,
-                                      fullName: "Test test",
-                                      email: "123@gmail.com",
-                                      avatar: "https://flomaster.top/o/uploads/posts/2024-02/1708364185_flomaster-top-p-smeshariki-pingvin-instagram-narisovannie-15.jpg",
-                                      status: "",
-                                      workday: "")
+    @State private var profile: ProfileInfo = ProfileInfo(fullName: "", email: "", avatar: "")
+    
     let menuItems: [MenuItem] = [
         MenuItem(icon: "sun.max", title: "Тема"),
         MenuItem(icon: "bell", title: "Уведомления"),
@@ -27,17 +23,21 @@ struct SettingsView: View {
     
     var body: some View {
         VStack {
-            Button(action: {
+            ProfileRow(profile: $profile) {
                 router.routeTo(.profile(profile: profile))
-            }) {
-                ProfileRow(profile: profile)
             }
             
             ForEach(menuItems) { item in
                 MenuRow(item: item) {
-                    //router.routeTo()
+                    switch item.title {
+                    case "Тема": router.routeTo(.theme)
+                    case "Уведомления": router.routeTo(.notifications)
+                    case "Безопасность": router.routeTo(.safety)
+                    case "Пригласи друга": router.routeTo(.inviteFriend)
+                    default: break
+                    }
                 }
-                .foregroundStyle(.black) //цвет текста
+                .foregroundStyle(.black)
             }
             Spacer()
         }
@@ -51,20 +51,33 @@ struct SettingsView: View {
                     HStack {
                         Image(systemName: "chevron.left")
                         Text("Настройки")
-                            .foregroundStyle(.black) //цвет текста
+                            .foregroundStyle(.black)
                     }
                     .bold()
                 }
             }
         }
         .onAppear {
-            //network.getInfoAboutAccount(with: ) //токен, не понял от куда его доставать
+            guard profile.fullName.isEmpty else { return }
+            loadProfileInfo()
         }
         .navigationBarBackButtonHidden()
+    }
+    
+    private func loadProfileInfo() {
+        DispatchQueue.global().async {
+            network.getInfoAboutAccount(with: "feb17911df8f6f6308a99d109f90d7e82dd151e05075a441de332635e659e503")
+        }
+        profile = ProfileInfo(
+            fullName: authManager.getFullName() ?? "username",
+            email: authManager.getEmail() ?? "",
+            avatar: authManager.getAvatar() ?? ""
+        )
     }
 }
 
 #Preview {
     SettingsView()
         .environmentObject(Router<MainRoute>())
+        .environmentObject(AuthManager(storageManager: StorageManager()))
 }

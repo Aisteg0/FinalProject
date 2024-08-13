@@ -4,27 +4,27 @@
 //
 //  Created by Сергей Дятлов on 11.08.2024.
 //
-
+import Foundation
 import SwiftUI
+import Combine
+import ExyteChat
 
 struct ProfileAvatarView: View {
     let avatar: String
     let side: CGFloat
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: avatar)) { phase in
-                if let image = phase.image {
-                    image
-                        .resizable()
-                        .frame(width: side, height: side)
-                        .clipShape(Circle())
-                } else {
-                    Image("person")
-                        .resizable()
-                        .foregroundColor(.black)
-                        .frame(width: side * 0.56, height: side * 0.56)
-                        .clipShape(Circle())
-                }
+            CachedAsyncImage(url: URL(string: avatar)) { phase in
+                phase
+                    .resizable()
+                    .frame(width: side, height: side)
+                    .clipShape(Circle())
+            } placeholder: {
+                Image("person")
+                    .resizable()
+                    .foregroundColor(.black)
+                    .frame(width: side * 0.56, height: side * 0.56)
+                    .clipShape(Circle())
             }
         }
         .frame(width: side, height: side)
