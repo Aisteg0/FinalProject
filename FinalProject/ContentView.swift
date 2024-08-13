@@ -16,17 +16,15 @@ struct ContentView: View {
                 Button("GetItems", action: viewModel.getAllItems)
             } else {
                 List(viewModel.items, id: \.name) { item in
-                    NavigationLink {
-                        ChatScreen(item: viewModel.messages)
-                    } label: {
-                        Button {
-                            viewModel.getMessages(from: item)
-                        } label: {
-                            Text(item.name)
-                        }
-
+                    NavigationLink(destination: {
+                        ChatScreen(item: item)
+                    }, label: {
+                        Text(item.name)
+                    })
+                    .onAppear {
+                        viewModel.getMessages(from: item)
+                        viewModel.onStart()
                     }
-
                 }
             }
         }

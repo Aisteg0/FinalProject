@@ -187,7 +187,7 @@ extension Network {
     
     // Возвращает массив сообщений
     public func getMessages(with token: String?, and messanger: DataItem) -> AnyPublisher<[CurrentMessages], Never>  {
-        guard let url = URL(string: postSendMessage(with: messanger)) else {
+        guard let url = URL(string: getMessages(with: messanger)) else {
             return  Just([CurrentMessages]()).eraseToAnyPublisher()
         }
             var request = URLRequest(url: url)
@@ -199,7 +199,6 @@ extension Network {
             .map { (response: MessagesInChat) -> [CurrentMessages] in
                 return response.data.items
             }
-            .print()
             .replaceError(with: [CurrentMessages]())
             .eraseToAnyPublisher()
     }
@@ -288,8 +287,20 @@ extension Network {
         + item.messengerType
         + MessageBuilder.chatId.rawValue
         + item.id
+        + MessageBuilder.messageAndText.rawValue
+    }
+    
+    fileprivate func getMessages(with item: DataItem) -> String {
+        return API.url.rawValue
+        + MessageBuilder.licenses.rawValue
+        + String(item.licenseId)
+        + MessageBuilder.messenger.rawValue
+        + item.messengerType
+        + MessageBuilder.chatId.rawValue
+        + item.id
         + MessageBuilder.messages.rawValue
     }
+    
     
     fileprivate func getProfile() -> String {
         API.url.rawValue + ProfileInfoURL.me.rawValue

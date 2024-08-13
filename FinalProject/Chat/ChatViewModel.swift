@@ -11,22 +11,71 @@ import KeychainAccess
 import NetworkModule
 import Models
 import ExyteChat
+import Algorithms
 
 final class ChatViewModel: ObservableObject {
     @Published var network = Network()
     @Published var items = [DataItem]()
-    @Published var datum = [Datum]()
     @Published var messages = [CurrentMessages]()
-    @Published var chatMessages = [Messages]()
+    @Published var chatMessages = [ExyteChat.Message]()
+    
     let keychain = Keychain(service: "openApi")
     
     private var cancellables = Set<AnyCancellable>()
     
     private var chatState = CurrentValueSubject<[CurrentMessages], Never>([])
     
+    var messagesNew: AnyPublisher<[CurrentMessages], Never> {
+        chatState
+            .share()
+            .eraseToAnyPublisher()
+        }
+    
     
     init() {
         getToken()
+    }
+    
+    func onStart() {
+        var converteMessages = messages.sorted(by: {$0.time < $1.time})
+        chatMessages = converteMessages.map { $0.toMessageFromMe() }
+    }
+
+    func getMessages(from item: DataItem) {
+        network.getMessages(with: keychain["token"], and: item)
+            .assign(to: \.messages, on: self)
+            .store(in: &self.cancellables)
+    }
+}
+
+extension ChatViewModel {
+    func send(draftMessage: DraftMessage, and item: DataItem) {
+           if draftMessage.id != nil {
+               guard let index = chatState.value.firstIndex(where: { $0.id == draftMessage.id }) else {
+                   // TODO: Create error
+                   return
+               }
+               chatState.value.remove(at: index)
+           }
+
+           Task {
+               let message = await draftMessage.sendDraftMessage(user: draftMessage, and: item)
+               DispatchQueue.main.async { [weak self] in
+                   self?.chatMessages.append(message.toMessageFromMe())
+               }
+           }
+       }
+}
+
+extension ChatViewModel {
+    func toMessages(from array: [CurrentMessages]) async -> [ExyteChat.Message] {
+        var messages: [ExyteChat.Message] = []
+        for message in array {
+            let converted = message.toMessageFromMe()
+            messages.append(converted)
+        }
+        
+        return messages
     }
     
     func getToken() {
@@ -57,14 +106,6 @@ final class ChatViewModel: ObservableObject {
         network.getAllItems(with: keychain["token"])
             .assign(to: \.items, on: self)
             .store(in: &self.cancellables)
-
-        print(items)
-    }
-    
-    func getDatum() {
-        network.getLicenses(with: keychain["token"])
-            .assign(to: \.datum, on: self)
-            .store(in: &self.cancellables)
     }
 
     func getProfile() {
@@ -74,29 +115,4 @@ final class ChatViewModel: ObservableObject {
     func sendMessage(with item: DataItem, and message: String) {
         network.postSendMessage(in: item, keychain["token"], message)
     }
-
-    func getMessages(from item: DataItem) {
-        network.getMessages(with: keychain["token"], and: item)
-            .assign(to: \.messages, on: self)
-            .store(in: &self.cancellables)
-    }
 }
-
-//extension ChatViewModel {
-//    func send(draftMessage: DraftMessage) {
-//           if draftMessage.id != nil {
-//               guard let index = chatState.value.firstIndex(where: { $0.id == draftMessage.id }) else {
-//                   // TODO: Create error
-//                   return
-//               }
-//               chatState.value.remove(at: index)
-//           }
-//
-//           Task {
-//               let message = await draftMessage.toMockMessage(user: chatData.tim, status: status)
-//               DispatchQueue.main.async { [weak self] in
-//                   self?.chatState.value.append(message)
-//               }
-//           }
-//       }
-//}

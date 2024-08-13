@@ -11,13 +11,16 @@
 		8CE8A3942C66657A002AB987 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE8A3932C66657A002AB987 /* ContentView.swift */; };
 		8CE8A3962C66657B002AB987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE8A3952C66657B002AB987 /* Assets.xcassets */; };
 		8CE8A3992C66657B002AB987 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE8A3982C66657B002AB987 /* Preview Assets.xcassets */; };
-		E7001A3A2C6BA5E2004BB03D /* ChatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7001A392C6BA5E2004BB03D /* ChatWindow.swift */; };
+		E7001A3C2C6BAD45004BB03D /* DraftMessage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7001A3B2C6BAD45004BB03D /* DraftMessage+.swift */; };
+		E7001A3E2C6BADA0004BB03D /* MessageStatus+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7001A3D2C6BADA0004BB03D /* MessageStatus+.swift */; };
+		E7001A412C6BF04C004BB03D /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = E7001A402C6BF04C004BB03D /* Algorithms */; };
+		E7001A432C6BF066004BB03D /* Sequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7001A422C6BF066004BB03D /* Sequence+.swift */; };
+		E7001A472C6BFAEF004BB03D /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7001A462C6BFAEF004BB03D /* Date+.swift */; };
 		E72AD1C42C6A38F900126379 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = E72AD1C32C6A38F900126379 /* NetworkModule */; };
 		E75177AB2C6B6440002E61BF /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75177AA2C6B6440002E61BF /* ChatViewModel.swift */; };
 		E75177AD2C6B6449002E61BF /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75177AC2C6B6449002E61BF /* ChatScreen.swift */; };
 		E75177B12C6B6475002E61BF /* ExyteChat in Frameworks */ = {isa = PBXBuildFile; productRef = E75177B02C6B6475002E61BF /* ExyteChat */; };
 		E75177B42C6B650F002E61BF /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = E75177B32C6B650F002E61BF /* KeychainAccess */; };
-		E79B3E4E2C6B8E2F008BA603 /* MessagesInChat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B3E4D2C6B8E2F008BA603 /* MessagesInChat+.swift */; };
 		E7A773FA2C6A438100F8BEBE /* StorageModule in Frameworks */ = {isa = PBXBuildFile; productRef = E7A773F92C6A438100F8BEBE /* StorageModule */; };
 		E7CEBB0D2C6A532A000F9612 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = E7CEBB0C2C6A532A000F9612 /* Models */; };
 /* End PBXBuildFile section */
@@ -28,14 +31,16 @@
 		8CE8A3932C66657A002AB987 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8CE8A3952C66657B002AB987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CE8A3982C66657B002AB987 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E7001A392C6BA5E2004BB03D /* ChatWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWindow.swift; sourceTree = "<group>"; };
+		E7001A3B2C6BAD45004BB03D /* DraftMessage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DraftMessage+.swift"; sourceTree = "<group>"; };
+		E7001A3D2C6BADA0004BB03D /* MessageStatus+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageStatus+.swift"; sourceTree = "<group>"; };
+		E7001A422C6BF066004BB03D /* Sequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+.swift"; sourceTree = "<group>"; };
+		E7001A462C6BFAEF004BB03D /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		E72AD1C12C6A38C900126379 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkModule; sourceTree = "<group>"; };
 		E72AD1C52C6A3A1A00126379 /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Models; sourceTree = "<group>"; };
 		E72AD1CA2C6A3B6700126379 /* StorageModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StorageModule; sourceTree = "<group>"; };
 		E75177A92C6B5374002E61BF /* Chat */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Chat; path = ../ChatTryImport/Chat; sourceTree = "<group>"; };
 		E75177AA2C6B6440002E61BF /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		E75177AC2C6B6449002E61BF /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
-		E79B3E4D2C6B8E2F008BA603 /* MessagesInChat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessagesInChat+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7001A412C6BF04C004BB03D /* Algorithms in Frameworks */,
 				E75177B12C6B6475002E61BF /* ExyteChat in Frameworks */,
 				E7CEBB0D2C6A532A000F9612 /* Models in Frameworks */,
 				E72AD1C42C6A38F900126379 /* NetworkModule in Frameworks */,
@@ -132,7 +138,6 @@
 		E75177AF2C6B6454002E61BF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E7001A392C6BA5E2004BB03D /* ChatWindow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,7 +145,10 @@
 		E79B3E4C2C6B8E10008BA603 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				E79B3E4D2C6B8E2F008BA603 /* MessagesInChat+.swift */,
+				E7001A3B2C6BAD45004BB03D /* DraftMessage+.swift */,
+				E7001A3D2C6BADA0004BB03D /* MessageStatus+.swift */,
+				E7001A422C6BF066004BB03D /* Sequence+.swift */,
+				E7001A462C6BFAEF004BB03D /* Date+.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 				E7CEBB0C2C6A532A000F9612 /* Models */,
 				E75177B02C6B6475002E61BF /* ExyteChat */,
 				E75177B32C6B650F002E61BF /* KeychainAccess */,
+				E7001A402C6BF04C004BB03D /* Algorithms */,
 			);
 			productName = FinalProject;
 			productReference = 8CE8A38E2C66657A002AB987 /* FinalProject.app */;
@@ -198,6 +207,7 @@
 			mainGroup = 8CE8A3852C666579002AB987;
 			packageReferences = (
 				E75177B22C6B650F002E61BF /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				E7001A3F2C6BF04C004BB03D /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = 8CE8A38F2C66657A002AB987 /* Products */;
 			projectDirPath = "";
@@ -227,10 +237,12 @@
 			files = (
 				E75177AD2C6B6449002E61BF /* ChatScreen.swift in Sources */,
 				8CE8A3942C66657A002AB987 /* ContentView.swift in Sources */,
+				E7001A3E2C6BADA0004BB03D /* MessageStatus+.swift in Sources */,
 				E75177AB2C6B6440002E61BF /* ChatViewModel.swift in Sources */,
-				E7001A3A2C6BA5E2004BB03D /* ChatWindow.swift in Sources */,
-				E79B3E4E2C6B8E2F008BA603 /* MessagesInChat+.swift in Sources */,
+				E7001A432C6BF066004BB03D /* Sequence+.swift in Sources */,
 				8CE8A3922C66657A002AB987 /* FinalProjectApp.swift in Sources */,
+				E7001A3C2C6BAD45004BB03D /* DraftMessage+.swift in Sources */,
+				E7001A472C6BFAEF004BB03D /* Date+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +454,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E7001A3F2C6BF04C004BB03D /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		E75177B22C6B650F002E61BF /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -453,6 +473,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E7001A402C6BF04C004BB03D /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7001A3F2C6BF04C004BB03D /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
 		E72AD1C32C6A38F900126379 /* NetworkModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkModule;
