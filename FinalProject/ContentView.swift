@@ -22,6 +22,7 @@ struct ContentView: View {
         } else {
             RoutingView(AuthRoute.self) {
                 VerificationNumberView()
+//                ChatsView()
             }
             .environmentObject(authManager)
         }

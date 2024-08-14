@@ -11,6 +11,7 @@ import UISystem
 import StorageModule
 
 struct VerificationCodeView: View {
+    @State var showAlert = false
     @State var contact = VerificationModel()
     @EnvironmentObject var router: Router<AuthRoute>
     @EnvironmentObject var authManager: AuthManager
@@ -42,6 +43,12 @@ struct VerificationCodeView: View {
                 .padding(.top, Constants.padding3)
                 .padding(Constants.padding4)
             }
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text(NSLocalizedString("incorrectCode", comment: "")),
+                    dismissButton: .default(Text(NSLocalizedString("ok", comment: "")))
+                )
+            }
             NotificationView()
         }
     }
@@ -50,10 +57,10 @@ struct VerificationCodeView: View {
         if contact.code == viewModel.password {
             router.path.removeLast(router.path.count)
             authManager.authorizeUser()
-            } else {
-//                print("Код неверный - \(code)\nверный - \(String(describing: authorizationData.smsCode))")
-            }
+        } else {
+            showAlert.toggle()
         }
+    }
     
 }
 
@@ -69,7 +76,7 @@ private enum Constants {
 }
 
 #Preview {
-    VerificationCodeView(contact: VerificationModel(), phoneNumber: "800 555 35 35")
+    VerificationCodeView(showAlert: true, contact: VerificationModel(), phoneNumber: "800 555 35 35")
         .environmentObject(ChatViewModel())
 }
 

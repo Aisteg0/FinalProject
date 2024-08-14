@@ -12,3 +12,15 @@
 "enterCode" = "Enter a code";
 "sentCode" = "Sent a code to the number";
 "requestCodeAgain" = "Request code again";
+"incorrectCode" = "Incorrect code";
+"ok" = "OK";
+
+//Settings
+"settings" = "Settings";
+"theme" = "Theme";
+"notifications" = "Notifications";
+"safety" = "Safety";
+"inviteFriend" = "Invite friend";
+
+//Profile
+"profile" = "Profile";

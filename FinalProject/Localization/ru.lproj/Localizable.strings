@@ -12,3 +12,15 @@
 "enterCode" = "Введите код";
 "sentCode" = "Отправили код на номер";
 "requestCodeAgain" = "Запросить код повторно";
+"incorrectCode" = "Неверный код";
+"ok" = "OK";
+
+//Settings
+"settings" = "Настройки";
+"theme" = "Тема";
+"notifications" = "Уведомления";
+"safety" = "Безопасность";
+"inviteFriend" = "Пригласи друга";
+
+//Profile
+"profile" = "Профиль";
