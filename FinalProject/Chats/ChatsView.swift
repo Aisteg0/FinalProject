@@ -16,42 +16,48 @@ struct ChatsView: View {
     
     
     var body: some View {
-        
-        VStack {
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.items, id: \.id) { item in
-                        Button(action: {
-                            router.routeTo(.personalChat(item))
-                            
-                            viewModel.getMessages(from: item)
-                            
-                        }) {
-                            Cell(dataItem: item)
-                        }
-                        .buttonStyle(PlainButtonStyle())
+        ZStack {
+            Color.accent4
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                HStack {
+                    Text("chats")
+                        .bold()
+                        .font(.system(size: 20))
+                    Spacer()
+                    Button {
+                        router.routeTo(.settings)
+                    } label: {
+                        Image(systemName: "gearshape")
+                            .foregroundStyle(.colorForText)
+                            .font(.system(size: 20))
                     }
                 }
-                .onAppear {
-                    viewModel.getAllItems()
+                .padding()
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.items, id: \.id) { item in
+                            Button(action: {
+                                router.routeTo(.personalChat(item))
+                                
+                                viewModel.getMessages(from: item)
+                                
+                            }) {
+                                Cell(dataItem: item)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                    }
+                    .onAppear {
+                        viewModel.getAllItems()
+                    }
                 }
             }
-            
         }
         .onAppear() {
             viewModel.getAllItems()
-//            viewModel.getMessages(from: item)
-//            viewModel.sortedItems()
-        }
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    router.routeTo(.settings)
-                } label: {
-                    Image(systemName: "gearshape")
-                }
-                
-            }
+            //            viewModel.getMessages(from: item)
+            //            viewModel.sortedItems()
         }
     }
 }

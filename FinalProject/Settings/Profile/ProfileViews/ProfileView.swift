@@ -14,13 +14,10 @@ struct ProfileView: View {
         VStack {
             Text(fullName)
                 .font(.system(size: 24))
-                .foregroundColor(.black)
             Text(email)
                 .font(.system(size: 16))
-                .foregroundColor(Color(red: RGBColor(173), green: RGBColor(181), blue: RGBColor(189)))
-                
-            
         }
+        .foregroundStyle(.colorForText)
     }
 }
 

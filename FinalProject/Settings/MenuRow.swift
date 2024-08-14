@@ -21,16 +21,16 @@ struct MenuRow: View {
         Button(action: action) {
             HStack {
                 Image(systemName: item.icon)
-                    .foregroundColor(.primary)
                     .padding(.trailing, 10)
                 Text(item.title)
                     .font(.system(size: 18, weight: .medium))
                 Spacer()
-                Image(systemName: Keys.Images.nextButtom)
-                    .foregroundStyle(.black) // цвет
+                Image(systemName: Keys.Images.nextButton)
             }
             .padding(.vertical, 15)
             .padding(.horizontal)
+            .foregroundStyle(.colorForText)
         }
+        
     }
 }

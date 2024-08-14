@@ -13,6 +13,9 @@ struct ProfileScreen: View {
     @EnvironmentObject var router: Router<MainRoute>
     
     var body: some View {
+        ZStack {
+            Color.accent4
+                .edgesIgnoringSafeArea(.all)
             VStack(spacing: 60) {
                 ProfileAvatarView(avatar: profile.avatar, side: 200)
                     .padding(.top, 80)
@@ -29,17 +32,19 @@ struct ProfileScreen: View {
                     } label: {
                         HStack {
                             Image(systemName: Keys.Images.backButton)
+                                .renderingMode(.template)
                             Text(Keys.Profile.profile)
-                                .foregroundColor(.black)// цвет
                         }
+                        .foregroundStyle(.colorForText)
                         .bold()
                     }
                 }
             }
+        }
         .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-    ProfileScreen(profile: ProfileInfo(fullName: "123", email: "321@mail.ru", avatar: ""))
+    ProfileScreen(profile: ProfileInfo(fullName: "123", email: "321@mail.ru", avatar: "person"))
 }

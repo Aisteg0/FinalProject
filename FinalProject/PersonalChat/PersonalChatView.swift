@@ -19,8 +19,9 @@ struct PersonalChatView: View {
         ChatView(messages: viewModel.chatMessages) { draft in
             viewModel.send(draftMessage: draft, and: item)
         } messageBuilder: { message, positionInGroup, positionInCommentsGroup, showContextMenuClosure, messageActionClosure, showAttachmentClosure in
-            CustomChatView(message: message, isOp: true)
+            CustomChatView(message: message, isOP: true)
         }
+        .chatTheme(colors: .init(mainBackground: .accent4))
         .task {
             Task {
                 viewModel.onStart()

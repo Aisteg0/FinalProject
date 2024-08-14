@@ -24,7 +24,7 @@ struct SocialNetworkView: View {
                         .background(content: {
                             Rectangle()
                                 .frame(width: 70, height: 40, alignment: .center)
-                                .foregroundColor(.white)
+                                .foregroundColor(.accent4)
                                 .overlay(alignment: .center, content: {
                                     RoundedRectangle(cornerRadius: 15)
                                         .stroke(lineWidth: 1.5)

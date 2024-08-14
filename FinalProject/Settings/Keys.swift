@@ -10,7 +10,7 @@ import Foundation
 enum Keys {
     
     enum Images {
-        static let nextButtom = "chevron.right"
+        static let nextButton = "chevron.right"
         static let backButton = "chevron.left"
         
         static let theme = "sun.max"

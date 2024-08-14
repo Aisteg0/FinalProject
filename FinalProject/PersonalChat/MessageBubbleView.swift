@@ -27,15 +27,13 @@ struct MessageBubbleView: View {
                         
                         TimeAndStatusView(message: message, isOP: isOP, statusStruct: statusStruct)
                     }
-                    .background(isOP == true ? .accent6 : .accent4)
+                    .background(isOP == true ? .accent6 : .accent7)
                     .clipShape(MessageBubbleShape(direction: isOP ? .right : .left))
                     isOP ? nil : Spacer()
                 }
             }
         }
-        .padding((isOP ? .leading : .trailing), 90.0)
         .padding(.vertical, 5)
-        
     }
 }
 
@@ -58,8 +56,8 @@ struct Status {
 
 struct MessageBubbleView_Previews: PreviewProvider {
     static private var shortMessage = "Hi, buddy!"
-    static private var longMessage = "Hello hello hello hello hello hello hello hello hello hello hello hello hello\n hello hello hello hello d d d d d d d d"
-
+    static private var longMessage = "Hellooooooo"
+    
     static private var message = Message(
         id: UUID().uuidString,
         user: User(id: UUID().uuidString, name: "Stan", avatarURL: nil, isCurrentUser: false),

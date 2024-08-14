@@ -19,23 +19,18 @@ struct ProfileRow: View {
                 VStack(alignment: .leading) {
                     Text(profile.fullName)
                         .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(Color(red: 0.23, green: 0.19, blue: 0.35)) // Цвет текста имени
                     
                     Text(profile.email)
                         .font(.system(size: 16))
-                        .foregroundColor(Color.gray)
                 }
                 .padding(.leading, 8)
+                .foregroundStyle(.colorForText)
                 Spacer()
-                Image(systemName: Keys.Images.backButton)
-                    .foregroundColor(Color(red: 0.23, green: 0.19, blue: 0.35)) // Цвет стрелки
+                Image(systemName: Keys.Images.nextButton)
+                    .foregroundStyle(.colorForText) // Цвет стрелки
             }
             .padding(.vertical, 8)
             .padding(.horizontal)
         }
     }
 }
-
-//#Preview {
-//    ProfileRow(profile: PersonalInfo(id: 111, fullName: "Test test", email: "123@gmail.com", avatar: "https://flomaster.top/o/uploads/posts/2024-02/1708364185_flomaster-top-p-smeshariki-pingvin-instagram-narisovannie-15.jpg", status: "", workday: "")){}
-//}

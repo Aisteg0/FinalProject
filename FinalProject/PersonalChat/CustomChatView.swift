@@ -10,9 +10,10 @@ import ExyteChat
 
 struct CustomChatView: View {
     let message: Message
-    let isOp: Bool
+    let isOP: Bool
     
     var body: some View {
         MessageBubbleView(isOP: message.user.isCurrentUser ? true : false, message: message)
+            .padding(([.leading, .trailing]), 10.0)
     }
 }
