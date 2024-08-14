@@ -27,7 +27,7 @@ struct ProfileRow: View {
                 }
                 .padding(.leading, 8)
                 Spacer()
-                Image(systemName: "chevron.right")
+                Image(systemName: Keys.Images.nextButtom)
                     .foregroundColor(Color(red: 0.23, green: 0.19, blue: 0.35)) // Цвет стрелки
             }
             .padding(.vertical, 8)

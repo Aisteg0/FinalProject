@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SocialNetworkView: View {
-    let socialIcons = ["x", "instagram", "link", "facebook"]
+    let socialIcons = [Keys.Images.x, Keys.Images.insta, Keys.Images.link, Keys.Images.facebook]
     
     var body: some View {
         HStack {

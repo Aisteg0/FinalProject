@@ -9,6 +9,23 @@ import Foundation
 
 enum Keys {
     
+    enum Images {
+        static let nextButtom = "chevron.right"
+        static let backButton = "chevron.left"
+        
+        static let theme = "sun.max"
+        static let notifications = "bell"
+        static let safety = "shield"
+        static let inviteFriend = "envelope"
+        
+        static let person = "person"
+        
+        static let x = "x"
+        static let insta = "instagram"
+        static let link = "link"
+        static let facebook = "facebook"
+    }
+    
     enum Settings {
         static let settings = "Настройки".localized
         static let theme = "Тема".localized

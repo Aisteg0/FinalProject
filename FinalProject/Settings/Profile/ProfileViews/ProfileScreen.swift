@@ -28,9 +28,9 @@ struct ProfileScreen: View {
                         router.dismiss()
                     } label: {
                         HStack {
-                            Image(systemName: "chevron.left")
+                            Image(systemName: Keys.Images.backButton)
                             Text(Keys.Profile.profile)
-                                .foregroundColor(.black)
+                                .foregroundColor(.black)// цвет
                         }
                         .bold()
                     }

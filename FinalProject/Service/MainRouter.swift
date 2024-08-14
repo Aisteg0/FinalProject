@@ -13,7 +13,7 @@ enum MainRoute: Routable {
     case personalChat
     
     case settings
-    case profile(profile: ProfileInfo)
+    case profile(ProfileInfo)
     case theme
     case notifications
     case safety

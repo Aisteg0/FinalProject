@@ -15,16 +15,16 @@ struct SettingsView: View {
     @State private var profile: ProfileInfo = ProfileInfo(fullName: "", email: "", avatar: "")
     
     let menuItems: [MenuItem] = [
-        MenuItem(icon: "sun.max", title: Keys.Settings.theme),
-        MenuItem(icon: "bell", title: Keys.Settings.notifications),
-        MenuItem(icon: "shield", title: Keys.Settings.safety),
-        MenuItem(icon: "envelope", title: Keys.Settings.inviteFriend)
+        MenuItem(icon: Keys.Images.theme, title: Keys.Settings.theme),
+        MenuItem(icon: Keys.Images.notifications, title: Keys.Settings.notifications),
+        MenuItem(icon: Keys.Images.safety, title: Keys.Settings.safety),
+        MenuItem(icon: Keys.Images.inviteFriend, title: Keys.Settings.inviteFriend)
     ]
     
     var body: some View {
         VStack {
             ProfileRow(profile: $profile) {
-                router.routeTo(.profile(profile: profile))
+                router.routeTo(.profile(profile))
             }
             
             ForEach(menuItems) { item in
@@ -44,17 +44,25 @@ struct SettingsView: View {
         .padding(.top, 40)
         .padding(.horizontal)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
+            ToolbarItem(placement: .topBarLeading) {
                 Button {
                     router.dismiss()
                 } label: {
                     HStack {
-                        Image(systemName: "chevron.left")
+                        Image(systemName: Keys.Images.backButton)
                         Text(Keys.Settings.settings)
                             .foregroundStyle(.black)
                     }
                     .bold()
                 }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    router.routeTo(.settings)
+                } label: {
+                    Image(systemName: "gearshape")
+                }
+
             }
         }
         .onAppear {

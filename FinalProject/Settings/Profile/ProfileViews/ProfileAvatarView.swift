@@ -20,7 +20,7 @@ struct ProfileAvatarView: View {
                     .frame(width: side, height: side)
                     .clipShape(Circle())
             } placeholder: {
-                Image("person")
+                Image(Keys.Images.person)
                     .resizable()
                     .foregroundColor(.black)
                     .frame(width: side * 0.56, height: side * 0.56)

@@ -26,7 +26,7 @@ struct MenuRow: View {
                 Text(item.title)
                     .font(.system(size: 18, weight: .medium))
                 Spacer()
-                Image(systemName: "chevron.right")
+                Image(systemName: Keys.Images.nextButtom)
                     .foregroundStyle(.black) // цвет
             }
             .padding(.vertical, 15)
