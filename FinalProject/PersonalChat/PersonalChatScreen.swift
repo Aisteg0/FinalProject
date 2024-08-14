@@ -10,7 +10,7 @@ import ExyteChat
 import ExyteMediaPicker
 import Models
 
-struct PersonalChatView: View {
+struct PersonalChatScreen: View {
     
     let item: DataItem
     @EnvironmentObject var viewModel: ChatViewModel

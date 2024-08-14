@@ -10,7 +10,7 @@ import Router
 import UISystem
 import StorageModule
 
-struct VerificationCodeView: View {
+struct VerificationCodeScreen: View {
     @State var showAlert = false
     @State var contact = VerificationModel()
     @EnvironmentObject var router: Router<AuthRoute>
@@ -76,7 +76,7 @@ private enum Constants {
 }
 
 #Preview {
-    VerificationCodeView(showAlert: true, contact: VerificationModel(), phoneNumber: "800 555 35 35")
+    VerificationCodeScreen(showAlert: true, contact: VerificationModel(), phoneNumber: "800 555 35 35")
         .environmentObject(ChatViewModel())
 }
 

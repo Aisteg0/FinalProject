@@ -27,11 +27,11 @@ enum MainRoute: Routable, Hashable {
     func view(router: Router<MainRoute>) -> some View {
         switch self {
         case .chats:
-            ChatsView()
+            ChatsList()
         case .personalChat(let item):
-            PersonalChatView(item: item)
+            PersonalChatScreen(item: item)
         case .settings:
-            SettingsView()
+            SettingsScreen()
         case .profile(let profile):
             ProfileScreen(profile: profile)
         case .theme:

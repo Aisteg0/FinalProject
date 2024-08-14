@@ -10,7 +10,7 @@ import Router
 import NetworkModule
 import StorageModule
 
-struct SettingsView: View {
+struct SettingsScreen: View {
     @EnvironmentObject var router: Router<MainRoute>
     @EnvironmentObject var authManager: AuthManager
     @EnvironmentObject var viewModel: ChatViewModel

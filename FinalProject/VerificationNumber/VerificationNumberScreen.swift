@@ -10,7 +10,7 @@ import Router
 import NetworkModule
 import UISystem
 
-struct VerificationNumberView: View {
+struct VerificationNumberScreen: View {
     @State var contact = VerificationModel()
     @EnvironmentObject var router: Router<AuthRoute>
     @EnvironmentObject var viewModel: ChatViewModel
@@ -64,6 +64,6 @@ private enum Constants {
 }
 
 #Preview {
-    VerificationNumberView()
+    VerificationNumberScreen()
         .environmentObject(Router<AuthRoute>())
 }

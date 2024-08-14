@@ -9,7 +9,7 @@ import SwiftUI
 import NetworkModule
 import Router
 
-struct ChatsView: View {
+struct ChatsList: View {
     
     @EnvironmentObject var router: Router<MainRoute>
     @EnvironmentObject var viewModel: ChatViewModel
@@ -63,7 +63,7 @@ struct ChatsView: View {
 }
 
 #Preview {
-    ChatsView()
+    ChatsList()
         .environmentObject(ChatViewModel())
         .environmentObject(Router<MainRoute>())
 }

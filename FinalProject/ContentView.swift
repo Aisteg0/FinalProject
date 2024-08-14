@@ -16,12 +16,12 @@ struct ContentView: View {
     var body: some View {
         if authManager.isUserAuthorized {
             RoutingView(MainRoute.self) {
-                ChatsView() // replace
+                ChatsList() // replace
             }
             .environmentObject(authManager)
         } else {
             RoutingView(AuthRoute.self) {
-                VerificationNumberView()
+                VerificationNumberScreen()
 //                ChatsView()
             }
             .environmentObject(authManager)
