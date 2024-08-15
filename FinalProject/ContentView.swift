@@ -6,16 +6,25 @@
 //
 
 import SwiftUI
+import Router
+import StorageModule
 
 struct ContentView: View {
+    
+    @StateObject var authManager = AuthManager(storageManager: StorageManager())
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if authManager.isUserAuthorized {
+            RoutingView(MainRoute.self) {
+                ChatsList() // replace
+            }
+            .environmentObject(authManager)
+        } else {
+            RoutingView(AuthRoute.self) {
+                VerificationNumberScreen()
+            }
+            .environmentObject(authManager)
         }
-        .padding()
     }
 }
 

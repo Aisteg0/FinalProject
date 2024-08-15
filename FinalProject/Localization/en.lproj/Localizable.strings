@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  FinalProject
+
+  Created by Ильяс Жанаев on 10.08.2024.
+  
+*/
+
+"enterPhoneNumber" = "Enter phone number";
+"willSendCode" = "We will send a confirmation code\nto the specified number";
+"continue" = "Continue";
+"enterCode" = "Enter a code";
+"sentCode" = "Sent a code to the number";
+"requestCodeAgain" = "Request code again";
+"incorrectCode" = "Incorrect code";
+"ok" = "OK";
+"chats" = "Chats";
+
+//Settings
+"settings" = "Settings";
+"theme" = "Theme";
+"notifications" = "Notifications";
+"safety" = "Safety";
+"inviteFriend" = "Invite friend";
+
+//Profile
+"profile" = "Profile";
