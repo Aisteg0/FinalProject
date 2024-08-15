@@ -49,7 +49,7 @@ extension StorageManager: StorageManagerProtocol {
         let jsonData = try? JSONEncoder().encode(object)
         store(jsonData, key: key.rawValue)
     }
-
+    
     public func string(forKey key: Keys) -> String? {
         restore(forKey: key.rawValue) as? String
     }

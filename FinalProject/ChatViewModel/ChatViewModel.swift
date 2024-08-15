@@ -34,7 +34,6 @@ final class ChatViewModel: ObservableObject {
             .eraseToAnyPublisher()
     }
     
-    
     init() {
         getToken()
         getRandomCode()
@@ -51,16 +50,6 @@ final class ChatViewModel: ObservableObject {
             .store(in: &self.cancellables)
         print(messages)
     }
-    
-//    func getUploadMessage(from item: DataItem) {
-//        network.getMessages(with: keychain["token"], and: item)
-//            .assign(to: \.uploadMessages, on: self)
-//            .store(in: &self.cancellables)
-//        
-//        //        if uploadMessages.uniqued(on: messages) {
-//        //
-//        //        }
-//    }
 }
 
 extension ChatViewModel {
@@ -124,7 +113,7 @@ extension ChatViewModel {
         network.postSendMessage(in: item, keychain["token"], message)
     }
     
-    func getRandomCode() { // функция должна где-то еще сохранять код, чтобы сымитировать верификацию пользователя
+    func getRandomCode() {
         password = ""
         for _ in 0..<4 {
             password += String(Int.random(in: 1...9))

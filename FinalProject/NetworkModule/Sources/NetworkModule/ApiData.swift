@@ -34,7 +34,6 @@ internal enum ProfileInfoURL: String {
     case me = "/v1/me"
 }
 
-
 internal enum PersonalData: String {
     case email = "SergeyD0205@yandex.ru"
     case password = "16a85a64eac5302945dcf541777b0bf0"

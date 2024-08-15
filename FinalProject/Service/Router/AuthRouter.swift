@@ -19,7 +19,7 @@ enum AuthRoute: Routable {
     func view(router: Router<AuthRoute>) -> some View {
         switch self {
         case .verificationNumber:
-            VerificationNumberScreen() 
+            VerificationNumberScreen()
         case .verificationCode(let phoneNumber):
             VerificationCodeScreen(phoneNumber: phoneNumber)
         }

@@ -18,7 +18,7 @@ struct VerificationPromptView: View {
                     let index = contact.index(contact.startIndex, offsetBy: id)
                     CirclePromtView(digit: String(contact[index]))
                 } else {
-                   CirclePromtView(digit: "")
+                    CirclePromtView(digit: "")
                 }
             }
         }

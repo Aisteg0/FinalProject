@@ -27,7 +27,7 @@ struct ProfileRow: View {
                 .foregroundStyle(.colorForText)
                 Spacer()
                 Image(systemName: Keys.Images.nextButton)
-                    .foregroundStyle(.colorForText) // Цвет стрелки
+                    .foregroundStyle(.colorForText)
             }
             .padding(.vertical, 8)
             .padding(.horizontal)

@@ -26,7 +26,3 @@ extension ProfileView {
         color / 255
     }
 }
-
-//#Preview {
-//    ProfileView(profile: PersonalInfo(id: 111, fullName: "Test test", email: "123@gmail.com", avatar: "https://flomaster.top/o/uploads/posts/2024-02/1708364185_flomaster-top-p-smeshariki-pingvin-instagram-narisovannie-15.jpg", status: "", workday: ""))
-//}

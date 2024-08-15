@@ -32,7 +32,6 @@ struct SettingsScreen: View {
                 ProfileRow(profile: $profile) {
                     router.routeTo(.profile(profile))
                 }
-                
                 ForEach(menuItems) { item in
                     MenuRow(item: item) {
                         switch item.title {
@@ -47,7 +46,6 @@ struct SettingsScreen: View {
                 }
                 Spacer()
             }
-            
             .padding(.top, 40)
             .padding(.horizontal)
             .toolbar {
@@ -67,7 +65,6 @@ struct SettingsScreen: View {
             .onAppear {
                 guard profile.fullName.isEmpty else { return }
                 loadProfileInfo()
-                
             }
             .navigationBarBackButtonHidden()
         }
@@ -75,7 +72,6 @@ struct SettingsScreen: View {
     
     private func loadProfileInfo() {
         DispatchQueue.global().async {
-//            network.getInfoAboutAccount(with: "feb17911df8f6f6308a99d109f90d7e82dd151e05075a441de332635e659e503")
             viewModel.getProfile()
         }
         profile = ProfileInfo(

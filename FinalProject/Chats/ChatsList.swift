@@ -14,7 +14,6 @@ struct ChatsList: View {
     @EnvironmentObject var router: Router<MainRoute>
     @EnvironmentObject var viewModel: ChatViewModel
     
-    
     var body: some View {
         ZStack {
             Color.accent4
@@ -56,8 +55,6 @@ struct ChatsList: View {
         }
         .onAppear() {
             viewModel.getAllItems()
-            //            viewModel.getMessages(from: item)
-            //            viewModel.sortedItems()
         }
     }
 }

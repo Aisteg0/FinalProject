@@ -10,7 +10,7 @@ import Combine
 
 public protocol AuthManagerProtocol: ObservableObject {
     var isUserAuthorized: Bool { get }
-
+    
     func authorizeUser()
     func logoutUser()
     func saveFullName(_ name: String)
@@ -26,7 +26,7 @@ public protocol AuthManagerProtocol: ObservableObject {
 public class AuthManager {
     @Published private(set) public var isUserAuthorized: Bool = false
     private let storageManager: StorageManagerProtocol
-
+    
     public init(storageManager: StorageManagerProtocol) {
         self.storageManager = storageManager
     }
@@ -78,5 +78,4 @@ extension AuthManager: AuthManagerProtocol {
     public func getPhoneNumber() -> String? {
         storageManager.string(forKey: .phoneNumber)
     }
-    
 }

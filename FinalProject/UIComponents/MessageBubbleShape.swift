@@ -36,11 +36,7 @@ struct MessageBubbleShape: Shape {
             p.addCurve(to: CGPoint(x: CGFloat.four, y: CGFloat.twenty),
                        control1: CGPoint(x: CGFloat.twelve, y: CGFloat.zero),
                        control2: CGPoint(x: CGFloat.four, y: CGFloat.eight))
-            p.addLine(to: CGPoint(x: CGFloat.four, y: height))
-
-           
-            
-            
+            p.addLine(to: CGPoint(x: CGFloat.four, y: height)) 
         }
         return path
     }

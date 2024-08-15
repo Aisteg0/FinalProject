@@ -19,22 +19,22 @@ public struct CurrentChatDataClass: Codable {
 
 public struct CurrentMessages: Codable {
     public let uid = UUID()
-   public let id: String
-   public let internalID: Int
-   public let groupID: String?
-   public let fromAPI, fromMe: Bool
-   public let side: String
-   public let time: Int
-   public let status: String?
-   public let error: Errors?
-   public let type: String
-   public let subtype: String?
-   public let message: Message
-   public let quotedMessage: QuotedMessage?
-   public let fromUser: FromUser
-   public let created: Created?
-   public let forwarded, edited: Bool
-   public let reactions: [Reaction]?
+    public let id: String
+    public let internalID: Int
+    public let groupID: String?
+    public let fromAPI, fromMe: Bool
+    public let side: String
+    public let time: Int
+    public let status: String?
+    public let error: Errors?
+    public let type: String
+    public let subtype: String?
+    public let message: Message
+    public let quotedMessage: QuotedMessage?
+    public let fromUser: FromUser
+    public let created: Created?
+    public let forwarded, edited: Bool
+    public let reactions: [Reaction]?
     
     public init(id: String, internalID: Int, groupID: String?, fromAPI: Bool, fromMe: Bool, side: String, time: Int, status: String?, error: Errors?, type: String, subtype: String?, message: Message, quotedMessage: QuotedMessage?, fromUser: FromUser, created: Created?, forwarded: Bool, edited: Bool, reactions: [Reaction]?) {
         self.id = id
@@ -56,7 +56,7 @@ public struct CurrentMessages: Codable {
         self.edited = edited
         self.reactions = reactions
     }
-
+    
     public enum CodingKeys: String, CodingKey {
         case id
         case internalID = "internalId"
@@ -169,12 +169,11 @@ public extension CurrentMessages {
                 statusMessage = .sending
             }
         }
-
         return statusMessage
     }
-
+    
     
     private func draftMessage(with message: CurrentMessages) -> DraftMessage {
-            DraftMessage(text: message.message.text, medias: [], recording: nil, replyMessage: nil, createdAt: Date(timeIntervalSince1970: TimeInterval(message.time)))
-        }
+        DraftMessage(text: message.message.text, medias: [], recording: nil, replyMessage: nil, createdAt: Date(timeIntervalSince1970: TimeInterval(message.time)))
+    }
 }

@@ -31,6 +31,5 @@ struct MenuRow: View {
             .padding(.horizontal)
             .foregroundStyle(.colorForText)
         }
-        
     }
 }

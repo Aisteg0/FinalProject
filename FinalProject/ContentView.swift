@@ -22,7 +22,6 @@ struct ContentView: View {
         } else {
             RoutingView(AuthRoute.self) {
                 VerificationNumberScreen()
-//                ChatsView()
             }
             .environmentObject(authManager)
         }

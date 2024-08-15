@@ -19,7 +19,6 @@ struct TimeAndStatusView: View {
                     .environment(\.locale, .init(identifier: "ru_RU"))
                 Text("·")
                 Text(statusStruct.getStatus(status: message.status))
-                
             }
             .padding(.leading, 150)
             .padding(.bottom, 10)

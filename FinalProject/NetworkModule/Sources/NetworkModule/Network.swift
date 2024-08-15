@@ -21,7 +21,6 @@ public protocol NetworkProtocol {
     func postNewToken(_ completion: @escaping(Result<String, NetworkError>) -> Void)
     func postRefreshToken(_ completion: @escaping(Result<String, NetworkError>) -> Void)
     func postSendMessage(in messanger: DataItem, _ token: String?, _ text: String)
-//    func getLicenses(with token: String?) -> AnyPublisher<[Datum], Never>
     func getAllItems(with token: String?) -> AnyPublisher<[DataItem], Never>
     func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void)
     func getInfoAboutAccount(with token: String?)
@@ -37,13 +36,11 @@ public class Network: NetworkProtocol, ObservableObject {
         self.user = user
         self.cancellables = cancellables
     }
-
 }
 
 // MARK: POST - requests
 extension Network {
     
-    // Генерирует токен и в completion его возвращает (лучше реализовать метод в начале запуска приложения , лушче всего в init() классе)
     public func postNewToken(_ completion: @escaping(Result<String, NetworkError>) -> Void) {
         guard let url = URL(string: postToken()) else {
             return completion(.failure(.invalidURL))
@@ -82,7 +79,6 @@ extension Network {
             .store(in: &cancellables)
     }
     
-    // Заново генерирует токен, если предыдущий перестал работать, в completion его возвращает (лучше реализовать метод в начале запуска приложения , лушче всего в init() классе)
     public func postRefreshToken(_ completion: @escaping(Result<String, NetworkError>) -> Void) {
         guard let url = URL(string: postRefreshToken()) else {
             return completion(.failure(.invalidURL))
@@ -116,60 +112,41 @@ extension Network {
     }
     
     
-        public func postSendMessage(in messanger: DataItem, _ token: String?, _ text: String) {
-            guard let url = URL(string: postSendMessage(with: messanger)) else { return }
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.setValue(token, forHTTPHeaderField: "Authorization")
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue("ru", forHTTPHeaderField: "Lang")
-    
-            let json: [String : String] = ["text": text]
-    
-            do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: json)
-            } catch {
-                print("Error: Unable to serialize payload")
-            }
-    
-            URLSession.shared
-                .dataTaskPublisher(for: request)
-                .receive(on: DispatchQueue.main)
-                .print()
-                .sink { completion in
-                    switch completion {
-                    case .finished:
-                        print("Fin")
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
-                } receiveValue: { _ in}
-                .store(in: &cancellables)
+    public func postSendMessage(in messanger: DataItem, _ token: String?, _ text: String) {
+        guard let url = URL(string: postSendMessage(with: messanger)) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("ru", forHTTPHeaderField: "Lang")
+        
+        let json: [String : String] = ["text": text]
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: json)
+        } catch {
+            print("Error: Unable to serialize payload")
         }
+        
+        URLSession.shared
+            .dataTaskPublisher(for: request)
+            .receive(on: DispatchQueue.main)
+            .print()
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("Fin")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            } receiveValue: { _ in}
+            .store(in: &cancellables)
+    }
 }
 
 // MARK: Get - requests
 extension Network {
     
-    // Возвращает массив чатов, с полной информацией о них, для того, чтобы далее использовать инфу для отправки сообщения
-//    public func getLicenses(with token: String?) -> AnyPublisher<[Datum], Never>  {
-//        guard let url = URL(string: API.url.rawValue + Chats.licenses.rawValue) else {
-//            return  Just([Datum]()).eraseToAnyPublisher()
-//        }
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "GET"
-//        request.setValue(token, forHTTPHeaderField: "Authorization")
-//        request.setValue("ru", forHTTPHeaderField: "Lang")
-//        
-//        return fetch(request)
-//            .map { (response: LicensesModel) -> [Datum] in
-//                return response.data
-//            }
-//            .replaceError(with: [Datum]())
-//            .eraseToAnyPublisher()
-//    }
-    
-    // Возвращает массив чатов, по моделе: AllItemsModel
     public func getAllItems(with token: String?) -> AnyPublisher<[DataItem], Never> {
         guard let url = URL(string: API.url.rawValue + Chats.allChats.rawValue) else {
             return  Just([DataItem]()).eraseToAnyPublisher()
@@ -186,25 +163,23 @@ extension Network {
             .eraseToAnyPublisher()
     }
     
-    // Возвращает массив сообщений
     public func getMessages(with token: String?, and messanger: DataItem) -> AnyPublisher<[CurrentMessages], Never>  {
-            guard let url = URL(string: getMessages(with: messanger)) else {
-                return  Just([CurrentMessages]()).eraseToAnyPublisher()
-            }
-                var request = URLRequest(url: url)
-                request.httpMethod = "Get"
-                request.setValue(token, forHTTPHeaderField: "Authorization")
-                request.setValue("ru", forHTTPHeaderField: "Lang")
-            print(request)
-            return fetch(request)
-                .map { (response: MessagesInChat) -> [CurrentMessages] in
-                    return response.data.items
-                }
-                .replaceError(with: [CurrentMessages]())
-                .eraseToAnyPublisher()
+        guard let url = URL(string: getMessages(with: messanger)) else {
+            return  Just([CurrentMessages]()).eraseToAnyPublisher()
         }
+        var request = URLRequest(url: url)
+        request.httpMethod = "Get"
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.setValue("ru", forHTTPHeaderField: "Lang")
+        print(request)
+        return fetch(request)
+            .map { (response: MessagesInChat) -> [CurrentMessages] in
+                return response.data.items
+            }
+            .replaceError(with: [CurrentMessages]())
+            .eraseToAnyPublisher()
+    }
     
-    // Функция для загрузки картинки
     public func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: url ?? "") else {
             completion(.failure(.invalidURL))
@@ -221,7 +196,6 @@ extension Network {
         }
     }
     
-    // Функция для загрузки информации о профиле в UserDefault
     public func getInfoAboutAccount(with token: String?) {
         guard let url = URL(string: getProfile()) else { return }
         var request = URLRequest(url: url)
@@ -258,7 +232,6 @@ extension Network {
 
 // MARK: func for me
 extension Network {
-    // Эту функицю я написал для себя, чтобы упросить дальнейшие get-запросы
     fileprivate func fetch<T: Decodable>(_ url: URLRequest) -> AnyPublisher<T, Error> {
         return URLSession.shared
             .dataTaskPublisher(for: url)
@@ -292,14 +265,14 @@ extension Network {
     }
     
     fileprivate func getMessages(with item: DataItem) -> String {
-            return API.url.rawValue
-            + MessageBuilder.licenses.rawValue
-            + String(item.licenseId)
-            + MessageBuilder.messenger.rawValue
-            + item.messengerType
-            + MessageBuilder.chatId.rawValue
-            + item.id
-            + MessageBuilder.messages.rawValue
+        return API.url.rawValue
+        + MessageBuilder.licenses.rawValue
+        + String(item.licenseId)
+        + MessageBuilder.messenger.rawValue
+        + item.messengerType
+        + MessageBuilder.chatId.rawValue
+        + item.id
+        + MessageBuilder.messages.rawValue
     }
     
     fileprivate func getProfile() -> String {

@@ -14,7 +14,6 @@ struct CustomInputTextInChatView: View {
     @EnvironmentObject var viewModel: ChatViewModel
     @Binding var message: String
     let actions: (InputViewAction) -> Void
-//    let dataItem: DataItem
     
     var body: some View {
         VStack {
@@ -35,14 +34,13 @@ struct CustomInputTextInChatView: View {
                     }
                     .padding(.horizontal, 10)
                 
-                    Button {
-                        actions(.send)
-//                        viewModel.sendMessage(with: dataItem, and: message)
-                    } label: {
-                        Image("sendMessage")
-                            .renderingMode(.template)
-                            .frame(width: 24, height: 24)
-                    }
+                Button {
+                    actions(.send)
+                } label: {
+                    Image("sendMessage")
+                        .renderingMode(.template)
+                        .frame(width: 24, height: 24)
+                }
             }
         }
         .padding(.bottom, 20)

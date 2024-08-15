@@ -13,7 +13,7 @@ public class Router<Destination: Routable>: ObservableObject {
     @Published public var presentingFullScreenCover: Destination?
     
     public init() {}
-
+    
     public func routeTo(_ route: Destination) {
         switch route.navigationType {
         case .push:

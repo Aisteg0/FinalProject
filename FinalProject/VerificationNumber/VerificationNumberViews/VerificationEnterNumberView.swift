@@ -56,7 +56,6 @@ struct VerificationEnterNumberView: View {
                 result.append(ch)
             }
         }
-        
         return result
     }
 }

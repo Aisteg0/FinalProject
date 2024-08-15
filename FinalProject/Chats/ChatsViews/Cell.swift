@@ -41,14 +41,12 @@ struct Cell: View {
             Spacer()
             
             VStack {
-                // MARK: Посмотреть как прихоядт даты и вставить ниже
                 Text("\(intToDate(dataItem.lastTime))")
                     .foregroundColor(.colorForDate)
                 Spacer()
                 if let coutUnreadMessage = dataItem.unreadMessages  {
                     Group {
                         Circle()
-                        
                             .fill(.colorForCircle)
                             .frame(width: Constants.frameWidhtForCountUnread, height: Constants.frameHeightForCountUnread)
                             .overlay(
@@ -63,24 +61,13 @@ struct Cell: View {
         }
         .padding(.vertical, Constants.paddingForAllHStack)
         .padding(.trailing, Constants.padding1)
-        //        .frame(width: Constants.widhtForAllHStack, height: Constants.heightForAllHStack)
         .cornerRadius(Constants.cornerRadius)
-        //        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
     }
     
     private func intToDate (_ value: Int?) -> String {
         guard let value else { return "" }
         let date = Date(timeIntervalSince1970: TimeInterval(value))
         let dateFormatter = DateFormatter()
-//        if value < 86_400 {
-//            dateFormatter.dateFormat = "dd.MM"
-//            let formattedDate = dateFormatter.string(from: date)
-//            return formattedDate
-//        } else {
-//            dateFormatter.timeStyle = .short
-//            let formattedDate = dateFormatter.string(from: date)
-//            return formattedDate
-//        }
         dateFormatter.dateFormat = "dd.MM"
         let formattedDate = dateFormatter.string(from: date)
         return formattedDate
@@ -99,7 +86,3 @@ private enum Constants {
     static let cornerRadius: CGFloat = 8.0
     static let padding1: CGFloat = 15.0
 }
-
-//#Preview {
-//    Cell()
-//}
